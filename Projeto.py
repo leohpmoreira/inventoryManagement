@@ -1,19 +1,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QPushButton
 import sys
-import Logs
-import sqlite3
+import loginWindow
 
 
-class ExampleApp(QtWidgets.QMainWindow, Logs.Ui_MainWindow):
+class initializeWindow(QtWidgets.QMainWindow, loginWindow.main_window):
     def __init__(self, parent=None):
-        super(ExampleApp, self).__init__(parent)
+        super(initializeWindow, self).__init__(parent)
         self.setupUi(self)
 
 
 def main():
     app = QApplication(sys.argv)
-    form = ExampleApp()
+    form = initializeWindow()
     form.show()
     app.exec_()
 
