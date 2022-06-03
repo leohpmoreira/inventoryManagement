@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sqlite3
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         self.frame_erro = QtWidgets.QFrame(self.top_bar)
         self.frame_erro.setMaximumSize(QtCore.QSize(450, 16777215))
         self.frame_erro.setStyleSheet("background-color: rgb(255, 85, 127);\n"
-"border-radius: 10px;")
+                                      "border-radius: 10px;")
         self.frame_erro.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_erro.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_erro.setObjectName("frame_erro")
@@ -55,19 +55,19 @@ class Ui_MainWindow(object):
         self.pushButton_close = QtWidgets.QPushButton(self.frame_erro)
         self.pushButton_close.setMaximumSize(QtCore.QSize(20, 20))
         self.pushButton_close.setStyleSheet("QPushButton {\n"
-"    border-radius: 5px;    \n"
-"    background-image: url(:/Close_Image/Images/cil-x.png);\n"
-"    background-position: center;\n"
-"    background-color: rgb(255, 0, 127);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(6, 21, 60);\n"
-"    color: rgb(200, 200, 200);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(200, 200, 200);\n"
-"}")
+                                            "    border-radius: 5px;    \n"
+                                            "    background-image: url(:/Close_Image/Images/cil-x.png);\n"
+                                            "    background-position: center;\n"
+                                            "    background-color: rgb(255, 0, 127);\n"
+                                            "}\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: rgb(6, 21, 60);\n"
+                                            "    color: rgb(200, 200, 200);\n"
+                                            "}\n"
+                                            "QPushButton:pressed {\n"
+                                            "    background-color: rgb(35, 35, 35);\n"
+                                            "    color: rgb(200, 200, 200);\n"
+                                            "}")
         self.pushButton_close.setText("")
         self.pushButton_close.setVisible(False)
         self.pushButton_close.setObjectName("pushButton_close")
@@ -85,27 +85,27 @@ class Ui_MainWindow(object):
         self.login_area.setMinimumSize(QtCore.QSize(0, 0))
         self.login_area.setMaximumSize(QtCore.QSize(450, 550))
         self.login_area.setStyleSheet("background-color: rgb(6, 21, 60);\n"
-"border-radius: 20px;")
+                                      "border-radius: 20px;")
         self.login_area.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.login_area.setFrameShadow(QtWidgets.QFrame.Raised)
         self.login_area.setObjectName("login_area")
         self.frame = QtWidgets.QFrame(self.login_area)
         self.frame.setGeometry(QtCore.QRect(110, 15, 231, 100))
         self.frame.setStyleSheet("background-image: url(:/Logo/LOGOFE.png);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"")
+                                 "background-repeat: no-repeat;\n"
+                                 "background-position: center;\n"
+                                 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.avatar = QtWidgets.QFrame(self.login_area)
         self.avatar.setGeometry(QtCore.QRect(110, 100, 231, 201))
         self.avatar.setStyleSheet("QFrame {\n"
-"    background-image: url(:/Avatar/AAAA.png);\n"
-"    background-position: center;\n"
-"    border-radius: 50px;\n"
-"    border: 10px solid rgb(245, 222, 179)\n"
-"}")
+                                  "    background-image: url(:/Avatar/AAAA.png);\n"
+                                  "    background-position: center;\n"
+                                  "    border-radius: 50px;\n"
+                                  "    border: 10px solid rgb(245, 222, 179)\n"
+                                  "}")
         self.avatar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.avatar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.avatar.setObjectName("avatar")
@@ -118,19 +118,19 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.lineEdit_user.setFont(font)
         self.lineEdit_user.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 5px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                         "    border: 3px solid rgb(245, 222, 179);\n"
+                                         "    border-radius: 5px;\n"
+                                         "    padding: 15px;\n"
+                                         "    background-color:rgb(249, 234, 195);\n"
+                                         "    color: rgb(45, 45, 45);\n"
+                                         "}\n"
+                                         "QLineEdit:hover {\n"
+                                         "    border: 3px solid rgb(55, 55, 55);\n"
+                                         "}\n"
+                                         "QLineEdit:focus {\n"
+                                         "    border: 3px solid rgb(135, 206, 250);\n"
+                                         "    color: rgb(45, 45, 45);\n"
+                                         "}")
         self.lineEdit_user.setMaxLength(45)
         self.lineEdit_user.setObjectName("lineEdit_user")
         self.lineEdit_password = QtWidgets.QLineEdit(self.login_area)
@@ -142,19 +142,19 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.lineEdit_password.setFont(font)
         self.lineEdit_password.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 5px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                             "    border: 3px solid rgb(245, 222, 179);\n"
+                                             "    border-radius: 5px;\n"
+                                             "    padding: 15px;\n"
+                                             "    background-color:rgb(249, 234, 195);\n"
+                                             "    color: rgb(45, 45, 45);\n"
+                                             "}\n"
+                                             "QLineEdit:hover {\n"
+                                             "    border: 3px solid rgb(55, 55, 55);\n"
+                                             "}\n"
+                                             "QLineEdit:focus {\n"
+                                             "    border: 3px solid rgb(135, 206, 250);\n"
+                                             "    color: rgb(45, 45, 45);\n"
+                                             "}")
         self.lineEdit_password.setMaxLength(16)
         self.lineEdit_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_password.setObjectName("lineEdit_password")
@@ -167,18 +167,18 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_login.setFont(font)
         self.pushButton_login.setStyleSheet("QPushButton{    \n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 25px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QPushButton:hover{    \n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QPushButton:pressed{    \n"
-"    background-color: rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                            "    border: 3px solid rgb(245, 222, 179);\n"
+                                            "    border-radius: 25px;\n"
+                                            "    background-color:rgb(249, 234, 195);\n"
+                                            "    color: rgb(45, 45, 45);\n"
+                                            "}\n"
+                                            "QPushButton:hover{    \n"
+                                            "    border: 3px solid rgb(55, 55, 55);\n"
+                                            "}\n"
+                                            "QPushButton:pressed{    \n"
+                                            "    background-color: rgb(135, 206, 250);\n"
+                                            "    color: rgb(45, 45, 45);\n"
+                                            "}")
         self.pushButton_login.setObjectName("pushButton_login")
         self.horizontalLayout.addWidget(self.login_area)
         self.verticalLayout.addWidget(self.content)
@@ -195,8 +195,8 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI")
         self.label_marca.setFont(font)
         self.label_marca.setStyleSheet("\n"
-"color: rgb(75, 75, 75);")
-        self.label_marca.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+                                       "color: rgb(75, 75, 75);")
+        self.label_marca.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_marca.setObjectName("label_marca")
         self.verticalLayout_2.addWidget(self.label_marca)
         self.verticalLayout.addWidget(self.botom_bar)
@@ -208,6 +208,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.pushButton_close.clicked.connect(lambda: self.hide())
+        self.pushButton_login.clicked.connect(lambda: self.login())
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -217,4 +220,30 @@ class Ui_MainWindow(object):
         self.lineEdit_password.setPlaceholderText(_translate("MainWindow", "SENHA"))
         self.pushButton_login.setText(_translate("MainWindow", "ENTRAR"))
         self.label_marca.setText(_translate("MainWindow", "Created By: ;Code Inc."))
+
+    def login(self):
+        con = sqlite3.connect("inventory.db")
+        cur = con.cursor()
+        user = self.lineEdit_user.text()
+        pwd = self.lineEdit_password.text()
+        print("Tentativa de login com dados: ", user, pwd)
+        cur.execute("SELECT * FROM Login WHERE UserID = :login AND Password = :passwd",
+                    {'login': self.lineEdit_user.text(), 'passwd': pwd})
+        if not cur.fetchone():
+            print("Login failed")
+            self.pushButton_close.setVisible(True)
+            self.label_erro.setVisible(True)
+            self.frame_erro.setVisible(True)
+            # show error
+        else:
+            print("Welcome")
+            # go to menu
+        con.close()
+
+    def hide_close(self):
+        self.pushButton_close.setVisible(False)
+        self.label_erro.setVisible(False)
+        self.frame_erro.setVisible(False)
+
+
 import file_rc
