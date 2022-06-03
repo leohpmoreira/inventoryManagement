@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from newProduct import newProductWindow
 
 class menu_window(object):
     def setupUi(self, MainWindow):
@@ -33,14 +33,14 @@ class menu_window(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.Btn_toggle = QtWidgets.QPushButton(self.frame_top)
+        self.Btn_toggle = QtWidgets.QPushButton(self.frame_top, clicked=lambda: self.side_menu())
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Btn_toggle.sizePolicy().hasHeightForWidth())
         self.Btn_toggle.setSizePolicy(sizePolicy)
         self.Btn_toggle.setStyleSheet("color: rgb(255, 255, 255);\n"
-"border: 0px solid;")
+                                      "border: 0px solid;")
         self.Btn_toggle.setObjectName("Btn_toggle")
         self.verticalLayout_2.addWidget(self.Btn_toggle)
         self.horizontalLayout.addWidget(self.frame_top)
@@ -77,92 +77,92 @@ class menu_window(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.Btn_menu_1 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_1 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.new_product())
         self.Btn_menu_1.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_1.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_1.setObjectName("Btn_menu_1")
         self.verticalLayout_4.addWidget(self.Btn_menu_1)
-        self.Btn_menu_2 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_2 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.delete_product())
         self.Btn_menu_2.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_2.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_2.setObjectName("Btn_menu_2")
         self.verticalLayout_4.addWidget(self.Btn_menu_2)
-        self.Btn_menu_3 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_3 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.restock_product())
         self.Btn_menu_3.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_3.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_3.setObjectName("Btn_menu_3")
         self.verticalLayout_4.addWidget(self.Btn_menu_3)
-        self.Btn_menu_4 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_4 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.remove_product())
         self.Btn_menu_4.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_4.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_4.setObjectName("Btn_menu_4")
         self.verticalLayout_4.addWidget(self.Btn_menu_4)
-        self.Btn_menu_5 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_5 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.check_stock())
         self.Btn_menu_5.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_5.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_5.setObjectName("Btn_menu_5")
         self.verticalLayout_4.addWidget(self.Btn_menu_5)
-        self.Btn_menu_6 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_menu_6 = QtWidgets.QPushButton(self.frame_top_menus, clicked=lambda: self.transaction_history())
         self.Btn_menu_6.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_6.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_6.setObjectName("Btn_menu_6")
         self.verticalLayout_4.addWidget(self.Btn_menu_6)
         self.Btn_menu_7 = QtWidgets.QPushButton(self.frame_top_menus)
         self.Btn_menu_7.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_7.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_7.setObjectName("Btn_menu_7")
         self.verticalLayout_4.addWidget(self.Btn_menu_7)
         self.Btn_menu_8 = QtWidgets.QPushButton(self.frame_top_menus)
         self.Btn_menu_8.setMinimumSize(QtCore.QSize(0, 50))
         self.Btn_menu_8.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.Btn_menu_8.setObjectName("Btn_menu_8")
         self.verticalLayout_4.addWidget(self.Btn_menu_8)
         self.verticalLayout_3.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
@@ -202,4 +202,33 @@ class menu_window(object):
         self.Btn_menu_7.setText(_translate("MainWindow", "PROCURAR ITEM"))
         self.Btn_menu_8.setText(_translate("MainWindow", "CONFIGURAÇÕES"))
 
+    def side_menu(self):
+        self.frame_left_menu.setMinimumSize(QtCore.QSize(150, 0))
+
+    def new_product(self):
+        self.close()
+        self.window = QtWidgets.QMainWindow()
+        self.ui = newProductWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        print("new product")
+
+    def delete_product(self):
+        print("delete product")
+
+    def restock_product(self):
+        print("restock product")
+
+    def remove_product(self):
+        print("remove product from stock")
+
+    def check_stock(self):
+        print("check stock")
+
+    def transaction_history(self):
+        print("transaction history")
+
+
+
 import file_rc
+

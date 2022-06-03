@@ -161,7 +161,7 @@ class main_window(object):
         self.lineEdit_password.setMaxLength(16)
         self.lineEdit_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_password.setObjectName("lineEdit_password")
-        self.pushButton_login = QtWidgets.QPushButton(self.login_area, clicked = lambda: self.login())
+        self.pushButton_login = QtWidgets.QPushButton(self.login_area, clicked=lambda: self.login())
         self.pushButton_login.setGeometry(QtCore.QRect(85, 440, 280, 50))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
