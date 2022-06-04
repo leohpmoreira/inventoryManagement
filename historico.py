@@ -19,7 +19,7 @@ class Ui_historico(object):
         self.label.setGeometry(QtCore.QRect(290, 20, 271, 41))
         self.label.setObjectName("label")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(100, 90, 701, 401))
+        self.tableWidget.setGeometry(QtCore.QRect(100, 90, 700, 400))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(7)
         self.tableWidget.setRowCount(0)

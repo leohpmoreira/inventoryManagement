@@ -240,6 +240,7 @@ class main_window(object):
             print("Welcome")
             self.close()
             self.window = QtWidgets.QMainWindow()
+            self.window.setFixedSize(QtCore.QSize(1000,500))
             self.ui = menu_window()
             self.ui.setupUi(self.window)
             self.window.show()

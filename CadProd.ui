@@ -6,79 +6,55 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>436</width>
-    <height>331</height>
+    <width>800</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QLineEdit" name="custo">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>170</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
+     <x>520</x>
      <y>70</y>
-     <width>161</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
-   <property name="text">
-    <string>QUANTIDADE</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>120</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>CÓDIGO</string>
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Custo</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="nome">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>120</y>
-     <width>161</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CATEGORIA</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
+     <x>150</x>
      <y>70</y>
-     <width>141</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>NOME DO PRODUTO</string>
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Nome</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>290</x>
      <y>10</y>
      <width>211</width>
      <height>31</height>
@@ -87,18 +63,116 @@
    <property name="text">
     <string>CADASTRAR PRODUTO</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QLineEdit" name="valor">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>240</y>
+     <x>330</x>
+     <y>120</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Valor</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="fornecedor">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>120</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Fornecedor</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="categoria">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>120</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Categoria</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>220</y>
      <width>121</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>CADASTRAR</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="quantidade">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>70</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Quantidade</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="valor_2">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>170</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Código</string>
    </property>
   </widget>
  </widget>

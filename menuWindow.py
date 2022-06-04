@@ -194,7 +194,7 @@ class menu_window(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.PagesWidget = QtWidgets.QStackedWidget(self.frame_pages)
         self.PagesWidget.setMinimumSize(QtCore.QSize(700, 0))
-        self.PagesWidget.setMaximumSize(QtCore.QSize(900, 16777215))
+        self.PagesWidget.setFixedSize(QtCore.QSize(850,400))
         self.PagesWidget.setObjectName("PagesWidget")
         self.reg_prod = QtWidgets.QWidget()
         self.reg_prod.setObjectName("reg_prod")

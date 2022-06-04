@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sqlite3
 
 
 class Ui_verificaEst(object):
@@ -19,9 +20,13 @@ class Ui_verificaEst(object):
         self.label.setGeometry(QtCore.QRect(230, 20, 231, 41))
         self.label.setObjectName("label")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(40, 60, 601, 391))
+        self.tableWidget.setGeometry(QtCore.QRect(40, 60, 600, 300))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
+        self.tableWidget.setColumnWidth(0,80)
+        self.tableWidget.setColumnWidth(1, 173)
+        self.tableWidget.setColumnWidth(2, 173)
+        self.tableWidget.setColumnWidth(3, 173)
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -34,6 +39,8 @@ class Ui_verificaEst(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
+
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
