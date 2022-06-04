@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>605</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -172,7 +172,7 @@ border: 0px solid;</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>150</width>
            <height>16777215</height>
           </size>
          </property>
@@ -226,7 +226,7 @@ border: 0px solid;</string>
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="Btn_menu_1">
+              <widget class="QPushButton" name="Btn_cadProd">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -248,7 +248,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_2">
+              <widget class="QPushButton" name="Btn_delProd">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -270,7 +270,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_3">
+              <widget class="QPushButton" name="Btn_reoEst">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -292,7 +292,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_4">
+              <widget class="QPushButton" name="Btn_remEst">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -314,7 +314,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_5">
+              <widget class="QPushButton" name="Btn_verEst">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -336,7 +336,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_6">
+              <widget class="QPushButton" name="Btn_hisSai">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -358,7 +358,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_7">
+              <widget class="QPushButton" name="Btn_procItem">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -380,7 +380,7 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Btn_menu_8">
+              <widget class="QPushButton" name="Btn_config">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -418,8 +418,26 @@ QPushButton:hover {
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
            <widget class="QStackedWidget" name="PagesWidget">
-            <widget class="QWidget" name="page"/>
-            <widget class="QWidget" name="page_2"/>
+            <property name="minimumSize">
+             <size>
+              <width>700</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>900</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <widget class="QWidget" name="reg_prod"/>
+            <widget class="QWidget" name="deleta_prod"/>
+            <widget class="QWidget" name="repor_est"/>
+            <widget class="QWidget" name="remover_est"/>
+            <widget class="QWidget" name="verificar_est"/>
+            <widget class="QWidget" name="hist_saida"/>
+            <widget class="QWidget" name="procura_item"/>
+            <widget class="QWidget" name="config"/>
            </widget>
           </item>
          </layout>
