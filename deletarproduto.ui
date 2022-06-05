@@ -28,63 +28,46 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>10</y>
-     <width>621</width>
+     <x>360</x>
+     <y>20</y>
+     <width>161</width>
      <height>41</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>16</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
-   <property name="styleSheet">
-    <string notr="true">color:rgb(249, 234, 195);</string>
-   </property>
    <property name="text">
     <string>DELETAR PRODUTO</string>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Código Produto</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>270</y>
-     <width>121</width>
-     <height>51</height>
+     <x>350</x>
+     <y>340</y>
+     <width>131</width>
+     <height>41</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{	
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 25px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QPushButton:hover{	
-	border: 3px solid rgb(55, 55, 55);
-}
-QPushButton:pressed{	
-	background-color: rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
    </property>
    <property name="text">
     <string>DELETAR</string>
@@ -93,34 +76,14 @@ QPushButton:pressed{
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>61</y>
-     <width>621</width>
-     <height>201</height>
+     <x>50</x>
+     <y>60</y>
+     <width>611</width>
+     <height>192</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
    </property>
    <property name="autoFillBackground">
     <bool>true</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QTableWidget {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="gridStyle">
-    <enum>Qt::SolidLine</enum>
    </property>
    <column>
     <property name="text">
@@ -152,46 +115,6 @@ QPushButton:pressed{
      <string>Fabricante</string>
     </property>
    </column>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>270</y>
-     <width>341</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
-   <property name="text">
-    <string>CÓDIGO DO PRODUTO</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
   </widget>
  </widget>
  <resources/>
