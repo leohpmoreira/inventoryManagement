@@ -22,7 +22,6 @@ from verificaEst import Ui_verificaEst
 
 class menu_window(object):
 
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 500)
@@ -260,7 +259,6 @@ class menu_window(object):
         self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
-
         self.Btn_cadProd.clicked.connect(lambda : self.PagesWidget.setCurrentWidget(self.reg_prod))
         self.Btn_remEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.remover_est))
         self.Btn_reoEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.repor_est))
@@ -273,6 +271,12 @@ class menu_window(object):
         self.cadProd.pushButton_2.clicked.connect(lambda : self.cadProd.cadastra())
         self.reposicao.pushButton.clicked.connect(lambda : self.reposicao.repor())
         self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
+        self.remocao.Remove.clicked.connect(lambda: self.remocao.retira())
+
+        self.Btn_remEst.clicked.connect(lambda: self.remocao.loadData())
+        self.Btn_delProd.clicked.connect(lambda : self.deleta.loadData())
+        self.Btn_hisSai.clicked.connect(lambda : self.hist.loadData())
+        self.Btn_verEst.clicked.connect(lambda : self.verficarEst.loadData())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

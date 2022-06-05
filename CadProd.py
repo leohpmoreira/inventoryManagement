@@ -9,7 +9,7 @@
 import sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtGui import QDoubleValidator, QIntValidator
 
 
 class Ui_cadProd(object):
@@ -103,7 +103,9 @@ class Ui_cadProd(object):
         self.comboBox.setObjectName("comboBox")
 
         self.onlyfloat = QDoubleValidator()
+        self.onlyint = QIntValidator()
 
+        self.codigo.setValidator(self.onlyint)
         self.custo.setValidator(self.onlyfloat)
         self.valor.setValidator(self.onlyfloat)
 

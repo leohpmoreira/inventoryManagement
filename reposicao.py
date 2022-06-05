@@ -17,9 +17,9 @@ class Ui_reposicao(object):
     def loadData(self):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
-        for r in cur.execute("SELECT * FROM Estoque"):
-            self.count += 1
-        self.tableWidget.setRowCount(self.count)
+        cur.execute("SELECT COUNT() FROM Estoque")
+        count = cur.fetchone()
+        self.tableWidget.setRowCount(count[0])
         query = "SELECT e.Cod_prod, p.Nome, e.Qtd FROM Estoque AS e " \
                 "LEFT JOIN Produtos AS p ON p.Cod = e.Cod_prod"
         tableIndex = 0
@@ -28,6 +28,7 @@ class Ui_reposicao(object):
                 self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
                 self.tableWidget.setItem(tableIndex, 1, QtWidgets.QTableWidgetItem(row[1]))
                 self.tableWidget.setItem(tableIndex, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+                tableIndex += 1
         except:
             print("Nada presente")
         data.close()
@@ -39,14 +40,14 @@ class Ui_reposicao(object):
         quantidade = int(self.lineEdit_2.text())
         if codigo and (quantidade > 0):
             try:
-                cur.execute("INSERT INTO Movimentacao VALUES(:count, 'E', :cod, :qtd)", \
-                            {'count': self.count, 'cod': codigo, 'qtd': quantidade})
-                self.count += 1
+                cur.execute("INSERT INTO Movimentacao VALUES(NULL, 'E', :cod, :qtd, DATE())", \
+                            {'cod': codigo, 'qtd': quantidade})
 
                 data.commit()
             except:
                 print("Nao e possivel inserir")
         data.close()
+        self.loadData()
 
     def setupUi(self, Form):
         Form.setObjectName("Form")

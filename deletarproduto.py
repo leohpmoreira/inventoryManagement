@@ -27,15 +27,17 @@ class Ui_deleta(object):
         else:
             print("Codigo invalido")
         data.close()
+        self.loadData()
 
     def loadData(self):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
 
         comando = "SELECT * FROM Produtos"
-        for r in cur.execute("SELECT * FROM Produtos"):
-            self.count+=1
-        self.tableWidget.setRowCount(self.count)
+        cur.execute("SELECT COUNT() FROM Produtos")
+
+        count = cur.fetchone()
+        self.tableWidget.setRowCount(count[0])
 
         tableIndex = 0
         for row in cur.execute(comando):
@@ -47,6 +49,8 @@ class Ui_deleta(object):
             self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem(str(row[5])))
             self.tableWidget.setItem(tableIndex, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             self.tableWidget.setItem(tableIndex, 5, QtWidgets.QTableWidgetItem(row[3]))
+            tableIndex+= 1
+        data.close()
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
