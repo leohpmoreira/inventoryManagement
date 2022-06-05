@@ -23,10 +23,10 @@ class Ui_verificaEst(object):
         self.tableWidget.setGeometry(QtCore.QRect(40, 60, 600, 300))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
-        self.tableWidget.setColumnWidth(0,80)
-        self.tableWidget.setColumnWidth(1, 173)
-        self.tableWidget.setColumnWidth(2, 173)
-        self.tableWidget.setColumnWidth(3, 173)
+        self.tableWidget.setColumnWidth(0, 100)
+        self.tableWidget.setColumnWidth(1, 250)
+        self.tableWidget.setColumnWidth(2, 100)
+        self.tableWidget.setColumnWidth(3, 100)
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -36,11 +36,26 @@ class Ui_verificaEst(object):
         self.tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(3, item)
-
         self.retranslateUi(Form)
+        self.loadData()
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-
+    def loadData(self):
+        data = sqlite3.connect("inventory.db")
+        cur = data.cursor()
+        cur.execute("SELECT COUNT() FROM ESTOQUE")
+        number = cur.fetchone()
+        self.tableWidget.setRowCount(number[0])
+        comando = "SELECT * FROM Estoque"
+        tableIndex = 0
+        for row in cur.execute(comando):
+            cur.execute("SELECT * FROM Produtos WHERE Cod = :codigo",{'codigo': row[0]})
+            produto = cur.fetchone()
+            self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tableWidget.setItem(tableIndex, 1, QtWidgets.QTableWidgetItem(str(produto[2])))
+            self.tableWidget.setItem(tableIndex, 2, QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem(str(produto[1])))
+            tableIndex += 1
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
