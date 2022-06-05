@@ -18,16 +18,16 @@ class Ui_reposicao(object):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
         for r in cur.execute("SELECT * FROM Estoque"):
-            self.count+=1
-
-        query = "SELECT p.Cod, p.Nome, e.Qtd FROM Estoque AS e"\
-                " LEFT JOIN Produtos AS p ON p.Cod = e.Cod_prod "
-        tableIndex =0
+            self.count += 1
+        self.tableWidget.setRowCount(self.count)
+        query = "SELECT e.Cod_prod, p.Nome, e.Qtd FROM Estoque AS e " \
+                "LEFT JOIN Produtos AS p ON p.Cod = e.Cod_prod"
+        tableIndex = 0
         try:
             for row in cur.execute(query):
-                self.tableWidget.setItem(tableIndex, 0, row[0])
-                self.tableWidget.setItem(tableIndex, 1, row[1])
-                self.tableWidget.setItem(tableIndex, 3, row[3])
+                self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+                self.tableWidget.setItem(tableIndex, 1, QtWidgets.QTableWidgetItem(row[1]))
+                self.tableWidget.setItem(tableIndex, 2, QtWidgets.QTableWidgetItem(str(row[2])))
         except:
             print("Nada presente")
         data.close()
@@ -39,47 +39,29 @@ class Ui_reposicao(object):
         quantidade = int(self.lineEdit_2.text())
         if codigo and (quantidade > 0):
             try:
-                cur.execute("INSERT INTO Movimentacao VALUES(:count, 'E', :cod, :qtd)",\
+                cur.execute("INSERT INTO Movimentacao VALUES(:count, 'E', :cod, :qtd)", \
                             {'count': self.count, 'cod': codigo, 'qtd': quantidade})
-                self.count+=1
-
-                cur.execute("SELECT * FROM Estoque WHERE Cod_prod= :codigo",{'codigo': codigo})
-
-                if not cur.fetchone():
-                    cur.execute("UPDATE Estoque SET Qtd = Qtd + :qtd WHERE Cod_prod=:codigo",
-                                {'qtd':quantidade,'codigo': codigo})
-                else:
-                    cur.execute("INSERT INTO Estoque VALUES (:codigo,:qtd)",{'codigo': codigo,'qtd':quantidade})
+                self.count += 1
 
                 data.commit()
             except:
                 print("Nao e possivel inserir")
         data.close()
 
-
-
-
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(712, 466)
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(230, 100, 161, 41))
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(500, 100, 141, 41))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(250, 10, 231, 51))
-        self.label.setObjectName("label")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(50, 100, 161, 41))
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(50, 160, 591, 211))
+        self.tableWidget.setGeometry(QtCore.QRect(50, 160, 590, 211))
+        self.tableWidget.setStyleSheet("QTableWidget {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -87,14 +69,93 @@ class Ui_reposicao(object):
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(50, 90, 161, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.lineEdit.setInputMask("")
+        self.lineEdit.setText("")
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2.setGeometry(QtCore.QRect(230, 90, 171, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.lineEdit_2.setText("")
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label = QtWidgets.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(50, 30, 591, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color:rgb(249, 234, 195);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(450, 90, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{    \n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 25px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QPushButton:hover{    \n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QPushButton:pressed{    \n"
+"    background-color: rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.tableWidget.setColumnWidth(0,192)
+        self.tableWidget.setColumnWidth(1, 196)
+        self.tableWidget.setColumnWidth(2, 150)
 
         self.count = 0
         self.onlyInt = QIntValidator()
         self.lineEdit_2.setValidator(self.onlyInt)
-
-        self.loadData()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -102,15 +163,13 @@ class Ui_reposicao(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.lineEdit_2.setPlaceholderText(_translate("Form", "Quantidade"))
-        self.pushButton_2.setText(_translate("Form", "REPOR"))
-        self.label.setText(_translate("Form", "REPOR PRODUTO"))
-        self.lineEdit.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Form", "Cod. Prod"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("Form", "Nome"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("Form", "Categoria"))
-        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("Form", "Quantidade"))
+        self.lineEdit.setPlaceholderText(_translate("Form", " CÓDIGO DO PRODUTO"))
+        self.lineEdit_2.setPlaceholderText(_translate("Form", "QUANTIDADE"))
+        self.label.setText(_translate("Form", "REPOR ESTOQUE DO PRODUTO"))
+        self.pushButton.setText(_translate("Form", "REPOR"))

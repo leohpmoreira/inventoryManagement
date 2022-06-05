@@ -9,7 +9,6 @@
 import sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIntValidator
 
 
 class Ui_deleta(object):
@@ -21,7 +20,7 @@ class Ui_deleta(object):
 
         if codigo:
             try:
-                cur.execute("DELETE FROM Produtos WHERE Cod = :codigo",{'codigo': codigo})
+                cur.execute("DELETE FROM Produtos WHERE Cod = :codigo", {'codigo': codigo})
                 data.commit()
             except:
                 print("Codigo invalido")
@@ -34,17 +33,20 @@ class Ui_deleta(object):
         cur = data.cursor()
 
         comando = "SELECT * FROM Produtos"
+        for r in cur.execute("SELECT * FROM Produtos"):
+            self.count+=1
+        self.tableWidget.setRowCount(self.count)
+
         tableIndex = 0
         for row in cur.execute(comando):
-            cur.execute("SELECT * FROM Categoria WHERE Cod = :codigo",{'codigo': row[1]})
+            cur.execute("SELECT * FROM Categoria WHERE Cod = :codigo", {'codigo': row[1]})
             categoria = cur.fetchone()
-            self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.tableWidget.setItem(tableIndex, 1, QtWidgets.QTableWidgetItem(row[2]))
             self.tableWidget.setItem(tableIndex, 2, QtWidgets.QTableWidgetItem(categoria[1]))
-            self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem( str(row[5]) ) )
-            self.tableWidget.setItem(tableIndex, 4, QtWidgets.QTableWidgetItem(str(row[4]) ) )
+            self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem(str(row[5])))
+            self.tableWidget.setItem(tableIndex, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             self.tableWidget.setItem(tableIndex, 5, QtWidgets.QTableWidgetItem(row[3]))
-
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -52,20 +54,53 @@ class Ui_deleta(object):
         Form.setMinimumSize(QtCore.QSize(850, 400))
         Form.setMaximumSize(QtCore.QSize(850, 400))
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(360, 20, 161, 41))
+        self.label.setGeometry(QtCore.QRect(100, 10, 621, 41))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label.setFont(font)
         self.label.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label.setStyleSheet("color:rgb(249, 234, 195);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(50, 260, 161, 41))
-        self.lineEdit.setAutoFillBackground(True)
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(350, 340, 131, 41))
+        self.pushButton.setGeometry(QtCore.QRect(600, 270, 121, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{    \n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 25px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QPushButton:hover{    \n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QPushButton:pressed{    \n"
+"    background-color: rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(50, 60, 611, 192))
+        self.tableWidget.setGeometry(QtCore.QRect(100, 61, 641, 201))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.tableWidget.setFont(font)
         self.tableWidget.setAutoFillBackground(True)
+        self.tableWidget.setStyleSheet("QTableWidget {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.tableWidget.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(6)
         self.tableWidget.setRowCount(0)
@@ -81,8 +116,33 @@ class Ui_deleta(object):
         self.tableWidget.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(5, item)
-        self.onlyInt = QIntValidator()
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(100, 270, 341, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.lineEdit.setText("")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setObjectName("lineEdit")
 
+        self.count = 0
         self.loadData()
 
         self.retranslateUi(Form)
@@ -92,7 +152,6 @@ class Ui_deleta(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "DELETAR PRODUTO"))
-        self.lineEdit.setPlaceholderText(_translate("Form", "Código Produto"))
         self.pushButton.setText(_translate("Form", "DELETAR"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Form", "Cod. Prod"))
@@ -105,4 +164,5 @@ class Ui_deleta(object):
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("Form", "Custo"))
         item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("Form", "Fabricante"))
+        item.setText(_translate("Form", "Fornecedor"))
+        self.lineEdit.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))

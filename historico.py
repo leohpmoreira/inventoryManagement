@@ -14,12 +14,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_historico(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(859, 574)
+        Form.resize(850, 440)
+        Form.setMinimumSize(QtCore.QSize(850, 440))
+        Form.setMaximumSize(QtCore.QSize(850, 440))
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(290, 20, 271, 41))
         self.label.setObjectName("label")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(100, 90, 700, 400))
+        self.tableWidget.setGeometry(QtCore.QRect(50, 70, 700, 300))
+        self.tableWidget.setMinimumSize(QtCore.QSize(700, 0))
+        self.tableWidget.setMaximumSize(QtCore.QSize(700, 300))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(7)
         self.tableWidget.setRowCount(0)

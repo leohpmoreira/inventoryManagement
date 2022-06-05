@@ -253,6 +253,7 @@ class menu_window(object):
 
         self.reposicao = Ui_reposicao()
         self.reposicao.setupUi(self.repor_est)
+        self.reposicao.loadData()
         self.remover_est.show()
 
         self.verficarEst = Ui_verificaEst()
@@ -270,7 +271,7 @@ class menu_window(object):
         self.Btn_hisSai.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.hist_saida))
 
         self.cadProd.pushButton_2.clicked.connect(lambda : self.cadProd.cadastra())
-        self.reposicao.pushButton_2.clicked.connect(lambda : self.reposicao.repor())
+        self.reposicao.pushButton.clicked.connect(lambda : self.reposicao.repor())
         self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
 
         self.retranslateUi(MainWindow)

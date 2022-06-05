@@ -24,25 +24,41 @@ class Ui_cadProd(object):
         fabricante = self.fornecedor.text()
         codigo = self.codigo.text()
 
-        if nome and categoria and valor and fabricante and codigo:
+        if nome and categoria and valor and fabricante and codigo and valor > 0 and custo > 0:
              cur.execute("SELECT * FROM Categoria WHERE Nome = :nome",{'nome': categoria})
              cod_cat = cur.fetchone()
              try:
-                 cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)",\
-                   {'cod_prod': codigo, 'cod_cat':cod_cat[0], 'nome': nome, 'fabricante': fabricante, 'custo': custo, 'preco': valor})
-                 data.commit()
-                 cur.close()
-                 data.close()
-                 self.codigo.clear()
-                 self.fornecedor.clear()
-                 self.nome.clear()
-                 self.categoria.clear()
-                 self.custo.clear()
-                 self.valor.clear()
+                if not cod_cat:
+                    cur.execute("INSERT INTO Categoria VALUES (:cod,:cat)",{'cod': self.countCat,'cat': categoria})
+                    data.commit()
+
+                cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)", \
+                            {'cod_prod': codigo, 'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
+                             'custo': custo, 'preco': valor})
+                cur.execute("INSERT INTO Estoque VALUES (:cod, '0')", {'cod': codigo})
+
+                data.commit()
+                cur.close()
+                data.close()
+                self.codigo.clear()
+                self.fornecedor.clear()
+                self.nome.clear()
+                self.categoria.clear()
+                self.custo.clear()
+                self.valor.clear()
              except:
                  print("Nao e possivel inserir")
+        else:
+            print("Valores nao validos, ou campo em branco")
 
     def setupUi(self, Form):
+
+        self.countCat = 1
+        data = sqlite3.connect("inventory.db")
+        cur = data.cursor()
+        for row in cur.execute("SELECT * FROM Categoria"):
+            self.countCat += 1
+
         Form.setObjectName("Form")
         Form.resize(800, 400)
         self.custo = QtWidgets.QLineEdit(Form)

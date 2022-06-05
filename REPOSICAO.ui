@@ -18,7 +18,7 @@
     <rect>
      <x>50</x>
      <y>160</y>
-     <width>591</width>
+     <width>590</width>
      <height>211</height>
     </rect>
    </property>
@@ -33,7 +33,7 @@
    </property>
    <column>
     <property name="text">
-     <string>New Column</string>
+     <string>Cod. Prod</string>
     </property>
    </column>
    <column>
@@ -80,7 +80,13 @@ QLineEdit:focus {
 	color: rgb(45, 45, 45);
 }</string>
    </property>
+   <property name="inputMask">
+    <string notr="true"/>
+   </property>
    <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string> CÓDIGO DO PRODUTO</string>
    </property>
   </widget>
@@ -117,6 +123,9 @@ QLineEdit:focus {
 }</string>
    </property>
    <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string>QUANTIDADE</string>
    </property>
   </widget>

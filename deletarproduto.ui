@@ -95,7 +95,7 @@ QPushButton:pressed{
     <rect>
      <x>100</x>
      <y>61</y>
-     <width>621</width>
+     <width>641</width>
      <height>201</height>
     </rect>
    </property>
@@ -149,7 +149,7 @@ QPushButton:pressed{
    </column>
    <column>
     <property name="text">
-     <string>Fabricante</string>
+     <string>Fornecedor</string>
     </property>
    </column>
   </widget>
@@ -187,10 +187,13 @@ QLineEdit:focus {
 }</string>
    </property>
    <property name="text">
-    <string>CÓDIGO DO PRODUTO</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="placeholderText">
+    <string>CÓDIGO DO PRODUTO</string>
    </property>
   </widget>
  </widget>
