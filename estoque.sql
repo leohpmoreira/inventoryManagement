@@ -1,5 +1,5 @@
 CREATE TABLE Produtos (
-    Cod VARCHAR2(8) PRIMARY KEY,
+    Cod INTEGER PRIMARY KEY,
     Categoria INTEGER,
     Nome TEXT NOT NULL,
     Fabricante TEXT NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Produtos (
 );
 
 CREATE TABLE Movimentacao (
-    ID VARCHAR2(5) PRIMARY KEY,
+    ID INTEGER PRIMARY KEY,
     Tipo TEXT NOT NULL,
     Cod_prod TEXT NOT NULL,
     Qtd INTEGER NOT NULL,
@@ -17,8 +17,8 @@ CREATE TABLE Movimentacao (
 );
 
 CREATE TABLE Estoque (
-    Cod_prod VARCHAR2(8) PRIMARY KEY,
-    Qtd VARCHAR2(5),
+    Cod_prod INTEGER PRIMARY KEY,
+    Qtd INTEGER,
     FOREIGN KEY (Cod_prod) REFERENCES Produtos (Cod)
 );
 
