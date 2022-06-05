@@ -13,58 +13,149 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="custo">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>70</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Custo</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="nome">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>70</y>
+     <x>140</x>
+     <y>60</y>
      <width>151</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
    </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Nome</string>
+    <string>NOME DO PRODUTO</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLineEdit" name="valor_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>10</y>
-     <width>211</width>
-     <height>31</height>
+     <x>140</x>
+     <y>180</y>
+     <width>151</width>
+     <height>51</height>
     </rect>
    </property>
-   <property name="text">
-    <string>CADASTRAR PRODUTO</string>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
+   </property>
+   <property name="text">
+    <string>CÓDIGO</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="categoria">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>120</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
+   </property>
+   <property name="text">
+    <string>CATEGORIA</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="quantidade">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>60</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
+   </property>
+   <property name="text">
+    <string>QUANTIDADE</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="valor">
@@ -73,17 +164,71 @@
      <x>330</x>
      <y>120</y>
      <width>151</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
    </property>
    <property name="text">
-    <string/>
+    <string>VALOR</string>
    </property>
-   <property name="placeholderText">
-    <string>Valor</string>
+  </widget>
+  <widget class="QLineEdit" name="custo">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>60</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
+   </property>
+   <property name="text">
+    <string>CUSTO</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="fornecedor">
@@ -92,87 +237,96 @@
      <x>520</x>
      <y>120</y>
      <width>151</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Fornecedor</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="categoria">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>120</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">QLineEdit {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QLineEdit:hover {
+	border: 3px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
    </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Categoria</string>
+    <string>FORNECEDOR</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>220</y>
-     <width>121</width>
+     <x>320</x>
+     <y>240</y>
+     <width>191</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{	
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 25px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QPushButton:hover{	
+	border: 3px solid rgb(55, 55, 55);
+}
+QPushButton:pressed{	
+	background-color: rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
    </property>
    <property name="text">
     <string>CADASTRAR</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="quantidade">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>70</y>
-     <width>151</width>
-     <height>41</height>
+     <x>140</x>
+     <y>10</y>
+     <width>531</width>
+     <height>31</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="placeholderText">
-    <string>Quantidade</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="valor_2">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>170</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">color:rgb(249, 234, 195);</string>
    </property>
    <property name="text">
-    <string/>
+    <string>CADASTRAR PRODUTO</string>
    </property>
-   <property name="placeholderText">
-    <string>Código</string>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
