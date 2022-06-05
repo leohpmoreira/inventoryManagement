@@ -21,6 +21,8 @@ from verificaEst import Ui_verificaEst
 
 
 class menu_window(object):
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 500)
@@ -225,36 +227,36 @@ class menu_window(object):
         self.verticalLayout.addWidget(self.Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
-        cadProd = Ui_cadProd()
-        cadProd.setupUi(self.reg_prod)
+        self.cadProd = Ui_cadProd()
+        self.cadProd.setupUi(self.reg_prod)
         self.reg_prod.show()
 
-        config = Ui_config()
-        config.setupUi(self.config)
+        self.config_t = Ui_config()
+        self.config_t.setupUi(self.config)
         self.config.show()
 
-        deleta = Ui_deleta()
-        deleta.setupUi(self.deleta_prod)
+        self.deleta = Ui_deleta()
+        self.deleta.setupUi(self.deleta_prod)
         self.deleta_prod.show()
 
-        hist = Ui_historico()
-        hist.setupUi(self.hist_saida)
+        self.hist = Ui_historico()
+        self.hist.setupUi(self.hist_saida)
         self.hist_saida.show()
 
-        procura = Ui_procura()
-        procura.setupUi(self.procura_item)
+        self.procura = Ui_procura()
+        self.procura.setupUi(self.procura_item)
         self.procura_item.show()
 
-        remocao = Ui_remocao()
-        remocao.setupUi(self.remover_est)
+        self.remocao = Ui_remocao()
+        self.remocao.setupUi(self.remover_est)
         self.remover_est.show()
 
-        reposicao = Ui_reposicao()
-        reposicao.setupUi(self.repor_est)
+        self.reposicao = Ui_reposicao()
+        self.reposicao.setupUi(self.repor_est)
         self.remover_est.show()
 
-        verficarEst = Ui_verificaEst()
-        verficarEst.setupUi(self.verificar_est)
+        self.verficarEst = Ui_verificaEst()
+        self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
 
@@ -266,6 +268,10 @@ class menu_window(object):
         self.Btn_config.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.config))
         self.Btn_verEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.verificar_est))
         self.Btn_hisSai.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.hist_saida))
+
+        self.cadProd.pushButton_2.clicked.connect(lambda : self.cadProd.cadastra())
+        self.reposicao.pushButton_2.clicked.connect(lambda : self.reposicao.repor())
+        self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

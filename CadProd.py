@@ -15,21 +15,32 @@ from PyQt5.QtGui import QDoubleValidator
 class Ui_cadProd(object):
 
     def cadastra(self):
-         data = sqlite3.connect("inventory.db")
-         cur = data.cursor()
-         nome = self.nome.text()
-         categoria = self.categoria.text()
-         valor = self.valor.text()
-         custo = self.custo.text()
-         fabricante = self.fornecedor.text()
-         codigo = self.codigo.text()
+        data = sqlite3.connect("inventory.db")
+        cur = data.cursor()
+        nome = self.nome.text()
+        categoria = self.categoria.text()
+        valor = float(self.valor.text())
+        custo = float(self.custo.text())
+        fabricante = self.fornecedor.text()
+        codigo = self.codigo.text()
 
-         if nome and categoria and valor and fabricante and codigo:
+        if nome and categoria and valor and fabricante and codigo:
              cur.execute("SELECT * FROM Categoria WHERE Nome = :nome",{'nome': categoria})
-             cod_cat = cur.fetchall()
-             comando = "INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)",\
-               {'cod_prod': codigo, 'cod_cat':cod_cat[0], 'nome': nome, 'fabricante': fabricante, 'custo': custo, 'preco': valor}
-             cur.execute(comando)
+             cod_cat = cur.fetchone()
+             try:
+                 cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)",\
+                   {'cod_prod': codigo, 'cod_cat':cod_cat[0], 'nome': nome, 'fabricante': fabricante, 'custo': custo, 'preco': valor})
+                 data.commit()
+                 cur.close()
+                 data.close()
+                 self.codigo.clear()
+                 self.fornecedor.clear()
+                 self.nome.clear()
+                 self.categoria.clear()
+                 self.custo.clear()
+                 self.valor.clear()
+             except:
+                 print("Nao e possivel inserir")
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -64,23 +75,22 @@ class Ui_cadProd(object):
         self.categoria.setText("")
         self.categoria.setObjectName("categoria")
         self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(330, 220, 121, 51))
+        self.pushButton_2.setGeometry(QtCore.QRect(330, 220, 121, 41))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.quantidade = QtWidgets.QLineEdit(Form)
-        self.quantidade.setGeometry(QtCore.QRect(330, 70, 151, 41))
-        self.quantidade.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.quantidade.setText("")
-        self.quantidade.setObjectName("quantidade")
-        self.valor_2 = QtWidgets.QLineEdit(Form)
-        self.valor_2.setGeometry(QtCore.QRect(150, 170, 151, 41))
-        self.valor_2.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.valor_2.setText("")
-        self.valor_2.setObjectName("codigo")
-        #self.onlyfloat = QDoubleValidator()
+        self.codigo = QtWidgets.QLineEdit(Form)
+        self.codigo.setGeometry(QtCore.QRect(330, 70, 151, 41))
+        self.codigo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.codigo.setText("")
+        self.codigo.setObjectName("codigo")
+        self.comboBox = QtWidgets.QComboBox(Form)
+        self.comboBox.setGeometry(QtCore.QRect(150, 170, 151, 31))
+        self.comboBox.setObjectName("comboBox")
 
-        #self.custo.setValidator(self.onlyfloat)
-        #self.custo.setValidator(self.onlyfloat)
-        self.pushButton_2.clicked.connect(self.cadastra())
+        self.onlyfloat = QDoubleValidator()
+
+        self.custo.setValidator(self.onlyfloat)
+        self.valor.setValidator(self.onlyfloat)
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -95,5 +105,4 @@ class Ui_cadProd(object):
         self.fornecedor.setPlaceholderText(_translate("Form", "Fornecedor"))
         self.categoria.setPlaceholderText(_translate("Form", "Categoria"))
         self.pushButton_2.setText(_translate("Form", "CADASTRAR"))
-        self.quantidade.setPlaceholderText(_translate("Form", "Quantidade"))
-        self.valor_2.setPlaceholderText(_translate("Form", "Código"))
+        self.codigo.setPlaceholderText(_translate("Form", "Código"))
