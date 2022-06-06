@@ -128,7 +128,7 @@ border-radius: 10px;</string>
             <property name="styleSheet">
              <string notr="true">QPushButton {
 	border-radius: 5px;	
-	background-image: url(:/Close_Image/Images/cil-x.png);
+	background-image: url(:/Fechar/cil-x.png);
 	background-position: center;
 	background-color: rgb(255, 0, 127);
 }
