@@ -13,7 +13,6 @@ import sqlite3
 
 from menuWindow import menu_window
 
-current = "empty"
 
 class main_window(object):
     def setupUi(self, MainWindow):
@@ -239,16 +238,12 @@ class main_window(object):
             # show error
         else:
             print("Welcome")
-            global current
-            current = user
-            print(current)
             self.close()
             self.window = QtWidgets.QMainWindow()
             self.window.setFixedSize(QtCore.QSize(1000,500))
             self.ui = menu_window()
             self.ui.setupUi(self.window)
             self.window.show()
-
             # go to menu
 
     def hide_error(self):

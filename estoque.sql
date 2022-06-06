@@ -13,7 +13,6 @@ CREATE TABLE Movimentacao (
     Tipo TEXT NOT NULL,
     Cod_prod TEXT NOT NULL,
     Qtd INTEGER NOT NULL,
-    Data DATE,
     FOREIGN KEY (Cod_prod) REFERENCES Produtos (Cod)
 );
 
@@ -34,21 +33,14 @@ CREATE TABLE Login (
     Type TEXT NOT NULL
 );
 
-CREATE TRIGGER IF NOT EXISTS Trg_entrada_estoque
-AFTER INSERT ON Movimentacao WHEN NEW.Tipo = 'E'
-BEGIN
-    UPDATE Estoque SET Qtd = Qtd + NEW.Qtd WHERE Cod_prod = NEW.Cod_prod;
-END;
-
-CREATE TRIGGER IF NOT EXISTS Trg_saida_estoque
-AFTER INSERT ON Movimentacao WHEN NEW.Tipo = 'S'
-BEGIN
-    UPDATE Estoque SET Qtd = Qtd - NEW.Qtd WHERE Cod_prod = NEW.Cod_prod;
-END;
-
-CREATE TRIGGER IF NOT EXISTS Trg_novo_produto
-AFTER INSERT ON Produtos
+CREATE TRIGGER  IF NOT EXISTS Trg_auto_estoque
+AFTER INSERT ON Movimentacao
 FOR EACH ROW
 BEGIN
-    INSERT INTO Estoque VALUES (NEW.Cod, 0);
+    UPDATE Estoque SET Qtd = CASE
+        WHEN NEW.Tipo = 'E'
+            THEN Qtd + NEW.Qtd
+            ELSE Qtd - NEW.Qtd END
+        WHERE Cod_prod = NEW.Cod_prod;
 END;
+

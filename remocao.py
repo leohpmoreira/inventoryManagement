@@ -14,7 +14,7 @@ from PyQt5.QtGui import QIntValidator
 
 class Ui_remocao(object):
 
-    def valida(self, codigo, quantidade):
+    def valida(self,codigo,quantidade):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
 
@@ -42,7 +42,7 @@ class Ui_remocao(object):
             self.tableWidget.setItem(tableIndex, 1, QtWidgets.QTableWidgetItem(row[1]))
             self.tableWidget.setItem(tableIndex, 2, QtWidgets.QTableWidgetItem(row[2]))
             self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            tableIndex += 1
+            tableIndex+=1
         data.close()
 
     def retira(self):
@@ -54,14 +54,15 @@ class Ui_remocao(object):
         count = cur.execute("SELECT COUNT() FROM Movimentacao").fetchone()
 
         if cod and qtd:
-            if self.valida(int(cod), int(qtd)):
+            if self.valida(int(cod),int(qtd)):
                 cur.execute("INSERT INTO Movimentacao VALUES(NULL,'S',:cod,:qtd, DATE())",
-                            {'cod': int(cod), 'qtd': int(qtd)})
+                            { 'cod': int(cod), 'qtd': int(qtd)})
                 data.commit()
             else:
                 print("Quantidade invalida")
         data.close()
         self.loadData()
+
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -69,25 +70,19 @@ class Ui_remocao(object):
         Form.setMinimumSize(QtCore.QSize(850, 440))
         Form.setMaximumSize(QtCore.QSize(850, 440))
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(100, -10, 541, 101))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(22)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color:rgb(249, 234, 195);")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setGeometry(QtCore.QRect(260, -10, 281, 71))
         self.label.setObjectName("label")
+        self.Qtd = QtWidgets.QLineEdit(Form)
+        self.Qtd.setGeometry(QtCore.QRect(310, 90, 191, 41))
+        self.Qtd.setObjectName("Qtd")
+        self.Codigo = QtWidgets.QLineEdit(Form)
+        self.Codigo.setGeometry(QtCore.QRect(100, 90, 181, 41))
+        self.Codigo.setObjectName("Codigo")
+        self.Remove = QtWidgets.QPushButton(Form)
+        self.Remove.setGeometry(QtCore.QRect(520, 90, 121, 41))
+        self.Remove.setObjectName("Remove")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(100, 150, 541, 192))
-        self.tableWidget.setStyleSheet("QTableWidget {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(0)
@@ -99,77 +94,6 @@ class Ui_remocao(object):
         self.tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(3, item)
-        self.Codigo = QtWidgets.QLineEdit(Form)
-        self.Codigo.setGeometry(QtCore.QRect(100, 80, 181, 51))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.Codigo.setFont(font)
-        self.Codigo.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
-        self.Codigo.setText("")
-        self.Codigo.setAlignment(QtCore.Qt.AlignCenter)
-        self.Codigo.setObjectName("Codigo")
-        self.Qtd = QtWidgets.QLineEdit(Form)
-        self.Qtd.setGeometry(QtCore.QRect(310, 80, 181, 51))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.Qtd.setFont(font)
-        self.Qtd.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
-        self.Qtd.setText("")
-        self.Qtd.setAlignment(QtCore.Qt.AlignCenter)
-        self.Qtd.setObjectName("Qtd")
-        self.Remove = QtWidgets.QPushButton(Form)
-        self.Remove.setGeometry(QtCore.QRect(520, 80, 121, 51))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setBold(True)
-        font.setWeight(75)
-        self.Remove.setFont(font)
-        self.Remove.setStyleSheet("QPushButton{    \n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 25px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QPushButton:hover{    \n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QPushButton:pressed{    \n"
-"    background-color: rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
-        self.Remove.setObjectName("Remove")
 
         valida = QIntValidator()
         self.Codigo.setValidator(valida)
@@ -183,6 +107,9 @@ class Ui_remocao(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "REMOVER PRODUTOS DO ESTOQUE"))
+        self.Qtd.setText(_translate("Form", "QUANTIDADE"))
+        self.Codigo.setText(_translate("Form", "CÓDIGO DO PRODUTO"))
+        self.Remove.setText(_translate("Form", "REMOVER"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Form", "Cod. prod"))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -191,6 +118,3 @@ class Ui_remocao(object):
         item.setText(_translate("Form", "Categoria"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("Form", "Quantidade"))
-        self.Codigo.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))
-        self.Qtd.setPlaceholderText(_translate("Form", "QUANTIDADE"))
-        self.Remove.setText(_translate("Form", "REMOVER"))
