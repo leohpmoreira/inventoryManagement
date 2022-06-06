@@ -161,7 +161,7 @@ QLineEdit:focus {
     <string>CATEGORIA</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="valor_2">
+  <widget class="QLineEdit" name="codigo">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -333,7 +333,7 @@ QLineEdit:focus {
     <string>CUSTO</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="nome_2">
+  <widget class="QLineEdit" name="fornecedor">
    <property name="geometry">
     <rect>
      <x>520</x>

@@ -19,88 +19,251 @@ class Ui_cadProd(object):
         cur = data.cursor()
         nome = self.nome.text()
         categoria = self.categoria.text()
-        valor = float(self.valor.text())
-        custo = float(self.custo.text())
+        valor = self.valor.text()
+        custo = self.custo.text()
         fabricante = self.fornecedor.text()
         codigo = self.codigo.text()
 
-        if nome and categoria and valor and fabricante and codigo and valor > 0 and custo > 0:
-             cur.execute("SELECT * FROM Categoria WHERE Nome = :nome",{'nome': categoria})
-             cod_cat = cur.fetchone()
-             try:
-                if not cod_cat:
-                    cur.execute("INSERT INTO Categoria VALUES (:cod,:cat)",{'cod': self.countCat,'cat': categoria})
+        if nome and categoria and valor and fabricante and codigo:
+            val = float(valor)
+            cus = float(custo)
+            if val > 0 and cus > 0:
+                cur.execute("SELECT * FROM Categoria WHERE Nome = :nome", {'nome': categoria})
+                cod_cat = cur.fetchone()
+                try:
+                    if not cod_cat:
+                        cur.execute("INSERT INTO Categoria VALUES (:cod,:cat)", {'cod': self.countCat, 'cat': categoria})
+                        data.commit()
+
+                    cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)", \
+                                {'cod_prod': codigo, 'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
+                                 'custo': custo, 'preco': valor})
+                    cur.execute("INSERT INTO Estoque VALUES (:cod, '0')", {'cod': codigo})
+
                     data.commit()
-
-                cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)", \
-                            {'cod_prod': codigo, 'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
-                             'custo': custo, 'preco': valor})
-                cur.execute("INSERT INTO Estoque VALUES (:cod, '0')", {'cod': codigo})
-
-                data.commit()
-                cur.close()
-                data.close()
-                self.codigo.clear()
-                self.fornecedor.clear()
-                self.nome.clear()
-                self.categoria.clear()
-                self.custo.clear()
-                self.valor.clear()
-             except:
-                 print("Nao e possivel inserir")
+                    cur.close()
+                    data.close()
+                    self.codigo.clear()
+                    self.fornecedor.clear()
+                    self.nome.clear()
+                    self.categoria.clear()
+                    self.custo.clear()
+                    self.valor.clear()
+                except:
+                    print("Nao e possivel inserir")
         else:
             print("Valores nao validos, ou campo em branco")
 
     def setupUi(self, Form):
-
-        self.countCat = 1
-        data = sqlite3.connect("inventory.db")
-        cur = data.cursor()
-        for row in cur.execute("SELECT * FROM Categoria"):
-            self.countCat += 1
-
         Form.setObjectName("Form")
         Form.resize(800, 400)
-        self.custo = QtWidgets.QLineEdit(Form)
-        self.custo.setGeometry(QtCore.QRect(520, 70, 151, 41))
-        self.custo.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.custo.setText("")
-        self.custo.setObjectName("custo")
-        self.nome = QtWidgets.QLineEdit(Form)
-        self.nome.setGeometry(QtCore.QRect(150, 70, 151, 41))
-        self.nome.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.nome.setText("")
-        self.nome.setObjectName("nome")
+        self.pushButton_2 = QtWidgets.QPushButton(Form)
+        self.pushButton_2.setGeometry(QtCore.QRect(320, 240, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet("QPushButton{    \n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 25px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QPushButton:hover{    \n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QPushButton:pressed{    \n"
+"    background-color: rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.pushButton_2.setObjectName("pushButton_2")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(290, 10, 211, 31))
+        self.label_2.setGeometry(QtCore.QRect(140, 10, 531, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color:rgb(249, 234, 195);")
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
-        self.valor = QtWidgets.QLineEdit(Form)
-        self.valor.setGeometry(QtCore.QRect(330, 120, 151, 41))
-        self.valor.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.valor.setText("")
-        self.valor.setObjectName("valor")
-        self.fornecedor = QtWidgets.QLineEdit(Form)
-        self.fornecedor.setGeometry(QtCore.QRect(520, 120, 151, 41))
-        self.fornecedor.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.fornecedor.setText("")
-        self.fornecedor.setObjectName("fornecedor")
+        self.nome = QtWidgets.QLineEdit(Form)
+        self.nome.setGeometry(QtCore.QRect(140, 60, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.nome.setFont(font)
+        self.nome.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.nome.setMaxLength(45)
+        self.nome.setAlignment(QtCore.Qt.AlignCenter)
+        self.nome.setObjectName("nome")
         self.categoria = QtWidgets.QLineEdit(Form)
-        self.categoria.setGeometry(QtCore.QRect(150, 120, 151, 41))
-        self.categoria.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.categoria.setText("")
+        self.categoria.setGeometry(QtCore.QRect(140, 120, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.categoria.setFont(font)
+        self.categoria.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.categoria.setMaxLength(45)
+        self.categoria.setAlignment(QtCore.Qt.AlignCenter)
         self.categoria.setObjectName("categoria")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(330, 220, 121, 41))
-        self.pushButton_2.setObjectName("pushButton_2")
         self.codigo = QtWidgets.QLineEdit(Form)
-        self.codigo.setGeometry(QtCore.QRect(330, 70, 151, 41))
-        self.codigo.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.codigo.setText("")
+        self.codigo.setGeometry(QtCore.QRect(140, 180, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.codigo.setFont(font)
+        self.codigo.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.codigo.setMaxLength(45)
+        self.codigo.setAlignment(QtCore.Qt.AlignCenter)
         self.codigo.setObjectName("codigo")
-        self.comboBox = QtWidgets.QComboBox(Form)
-        self.comboBox.setGeometry(QtCore.QRect(150, 170, 151, 31))
-        self.comboBox.setObjectName("comboBox")
+        self.quantidade = QtWidgets.QLineEdit(Form)
+        self.quantidade.setGeometry(QtCore.QRect(330, 60, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.quantidade.setFont(font)
+        self.quantidade.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.quantidade.setMaxLength(45)
+        self.quantidade.setAlignment(QtCore.Qt.AlignCenter)
+        self.quantidade.setObjectName("quantidade")
+        self.valor = QtWidgets.QLineEdit(Form)
+        self.valor.setGeometry(QtCore.QRect(330, 120, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.valor.setFont(font)
+        self.valor.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.valor.setMaxLength(45)
+        self.valor.setAlignment(QtCore.Qt.AlignCenter)
+        self.valor.setObjectName("valor")
+        self.custo = QtWidgets.QLineEdit(Form)
+        self.custo.setGeometry(QtCore.QRect(520, 60, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.custo.setFont(font)
+        self.custo.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.custo.setMaxLength(45)
+        self.custo.setAlignment(QtCore.Qt.AlignCenter)
+        self.custo.setObjectName("custo")
+        self.fornecedor = QtWidgets.QLineEdit(Form)
+        self.fornecedor.setGeometry(QtCore.QRect(520, 120, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setWeight(50)
+        self.fornecedor.setFont(font)
+        self.fornecedor.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.fornecedor.setMaxLength(45)
+        self.fornecedor.setAlignment(QtCore.Qt.AlignCenter)
+        self.fornecedor.setObjectName("fornecedor")
 
         self.onlyfloat = QDoubleValidator()
         self.onlyint = QIntValidator()
@@ -109,18 +272,18 @@ class Ui_cadProd(object):
         self.custo.setValidator(self.onlyfloat)
         self.valor.setValidator(self.onlyfloat)
 
-
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.custo.setPlaceholderText(_translate("Form", "Custo"))
-        self.nome.setPlaceholderText(_translate("Form", "Nome"))
-        self.label_2.setText(_translate("Form", "CADASTRAR PRODUTO"))
-        self.valor.setPlaceholderText(_translate("Form", "Valor"))
-        self.fornecedor.setPlaceholderText(_translate("Form", "Fornecedor"))
-        self.categoria.setPlaceholderText(_translate("Form", "Categoria"))
         self.pushButton_2.setText(_translate("Form", "CADASTRAR"))
-        self.codigo.setPlaceholderText(_translate("Form", "Código"))
+        self.label_2.setText(_translate("Form", "CADASTRAR PRODUTO"))
+        self.nome.setPlaceholderText(_translate("Form", "NOME DO PRODUTO"))
+        self.categoria.setPlaceholderText(_translate("Form", "CATEGORIA"))
+        self.codigo.setPlaceholderText(_translate("Form", "CÓDIGO"))
+        self.quantidade.setPlaceholderText(_translate("Form", "QUANTIDADE"))
+        self.valor.setPlaceholderText(_translate("Form", "VALOR"))
+        self.custo.setPlaceholderText(_translate("Form", "CUSTO"))
+        self.fornecedor.setPlaceholderText(_translate("Form", "FORNECEDOR"))

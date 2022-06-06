@@ -14,16 +14,79 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_procura(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(696, 506)
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(70, 130, 181, 51))
-        self.lineEdit.setObjectName("lineEdit")
+        Form.resize(661, 506)
+        Form.setStyleSheet("color:rgb(249, 234, 195);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(250, 40, 251, 51))
+        self.label.setGeometry(QtCore.QRect(70, 40, 501, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(26)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color:rgb(249, 234, 195);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(70, 130, 211, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.lineEdit.setText("")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(350, 130, 181, 51))
+        self.lineEdit_2.setGeometry(QtCore.QRect(360, 130, 211, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setStyleSheet("QLineEdit {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 3px solid rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.lineEdit_2.setText("")
+        self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(290, 130, 61, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -31,6 +94,7 @@ class Ui_procura(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.lineEdit.setText(_translate("Form", "CÓDIGO DO PRODUTO"))
         self.label.setText(_translate("Form", "PROCURAR PRODUTO"))
-        self.lineEdit_2.setText(_translate("Form", "NOME DO PRODUTO"))
+        self.lineEdit.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))
+        self.lineEdit_2.setPlaceholderText(_translate("Form", "NOME DO PRODUTO"))
+        self.label_2.setText(_translate("Form", "OU"))
