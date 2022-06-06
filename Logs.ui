@@ -20,7 +20,7 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="file_rc.qrc">
+   <iconset>
     <normaloff>:/Icon/Images/Icon.ico</normaloff>:/Icon/Images/Icon.ico</iconset>
   </property>
   <property name="styleSheet">
@@ -179,7 +179,7 @@ QPushButton:pressed {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(6, 21, 60);
+          <string notr="true">background-color: rgb(93, 138, 168);
 border-radius: 20px;</string>
          </property>
          <property name="frameShape">
@@ -198,7 +198,7 @@ border-radius: 20px;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/Logo/LOGOFE.png);
+           <string notr="true">background-image: url(:/Upperlogo/LOGOFE.png);
 background-repeat: no-repeat;
 background-position: center;
 </string>
@@ -221,7 +221,7 @@ background-position: center;
           </property>
           <property name="styleSheet">
            <string notr="true">QFrame {
-	background-image: url(:/Avatar/AAAA.png);
+	background-image: url(:/Logo/AAAA.png);
 	background-position: center;
 	border-radius: 50px;
 	border: 10px solid rgb(245, 222, 179)

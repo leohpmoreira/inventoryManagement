@@ -82,12 +82,12 @@
         <widget class="QFrame" name="frame_top">
          <property name="maximumSize">
           <size>
-           <width>130</width>
+           <width>123</width>
            <height>40</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 255);</string>
+          <string notr="true">background-color: rgb(93, 138, 168);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -117,7 +117,7 @@
        <item>
         <widget class="QFrame" name="frame_toggle">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(6, 21, 60);</string>
+          <string notr="true">background-color: rgb(35, 35, 35);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -164,7 +164,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>150</width>
+           <width>250</width>
            <height>16777215</height>
           </size>
          </property>
@@ -218,99 +218,11 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="Btn_cadProd">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>62</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-	background-color: rgb(35, 35, 35);
-	color: rgb(255, 255, 255);
-}
-QPushButton:hover {
-	background-color: rgb(6, 21, 60);
-}</string>
-               </property>
-               <property name="text">
-                <string>CADASTRAR PRODUTOS</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="Btn_delProd">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>62</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-	background-color: rgb(35, 35, 35);
-	color: rgb(255, 255, 255);
-}
-QPushButton:hover {
-	background-color: rgb(6, 21, 60);
-}</string>
-               </property>
-               <property name="text">
-                <string>DELETAR PRODUTO</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="Btn_reoEst">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>62</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-	background-color: rgb(35, 35, 35);
-	color: rgb(255, 255, 255);
-}
-QPushButton:hover {
-	background-color: rgb(6, 21, 60);
-}</string>
-               </property>
-               <property name="text">
-                <string>REPOR ESTOQUE</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="Btn_remEst">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>62</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-	background-color: rgb(35, 35, 35);
-	color: rgb(255, 255, 255);
-}
-QPushButton:hover {
-	background-color: rgb(6, 21, 60);
-}</string>
-               </property>
-               <property name="text">
-                <string>REMOVER DO ESTOQUE</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QPushButton" name="Btn_verEst">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>62</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -332,7 +244,7 @@ QPushButton:hover {
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>62</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -345,7 +257,7 @@ QPushButton:hover {
 }</string>
                </property>
                <property name="text">
-                <string>HISTÓRICO DE MOVIMENTAÇÕES</string>
+                <string>HISTÓRICO DE MOVIMENTAÇÃO</string>
                </property>
               </widget>
              </item>
@@ -354,7 +266,7 @@ QPushButton:hover {
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>62</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -376,7 +288,7 @@ QPushButton:hover {
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>62</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -394,6 +306,24 @@ QPushButton:hover {
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background-image: url(:/Logo/AAAA.png);
+border-radius: 20px;
+background-repeat: no-repeat;
+background-position: center;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
            </widget>
           </item>
          </layout>
