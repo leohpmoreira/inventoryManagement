@@ -25,47 +25,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="Usuario">
+  <widget class="QPushButton" name="edita_senha">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>220</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>EDITAR SENHA</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cria_conta">
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>90</y>
-     <width>151</width>
+     <y>280</y>
+     <width>141</width>
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
-    <string>USUÁRIO</string>
+    <string>CRIAR NOVA CONTA</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="senha_user">
@@ -77,81 +60,21 @@ QLineEdit:focus {
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
     <string>SENHA</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Tipo">
+  <widget class="QLineEdit" name="Usuario">
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>210</y>
+     <y>90</y>
      <width>151</width>
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
-    <string>TIPO DA CONTA</string>
+    <string>NOME DE USUARIO</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="Senha_antiga">
@@ -163,37 +86,7 @@ QLineEdit:focus {
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
     <string>SENHA ANTIGA</string>
    </property>
   </widget>
@@ -206,108 +99,21 @@ QLineEdit:focus {
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 10px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
-    <string>NOVA SNEHA</string>
+    <string>NOVA SENHA</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="cria_conta">
+  <widget class="QLineEdit" name="Tipo">
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>280</y>
+     <y>210</y>
      <width>151</width>
      <height>51</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{	
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 25px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QPushButton:hover{	
-	border: 3px solid rgb(55, 55, 55);
-}
-QPushButton:pressed{	
-	background-color: rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
    <property name="text">
-    <string>CRIAR CONTA</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="edita_senha">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>220</y>
-     <width>151</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{	
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 25px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QPushButton:hover{	
-	border: 3px solid rgb(55, 55, 55);
-}
-QPushButton:pressed{	
-	background-color: rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
-   <property name="text">
-    <string>EDITAR SENHA</string>
+    <string>TIPO DA CONTA</string>
    </property>
   </widget>
  </widget>

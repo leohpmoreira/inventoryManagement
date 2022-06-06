@@ -19,13 +19,12 @@ from remocao import Ui_remocao
 from reposicao import Ui_reposicao
 from verificaEst import Ui_verificaEst
 
-
 class menu_window(object):
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 500)
         MainWindow.setMinimumSize(QtCore.QSize(1000, 500))
+        MainWindow.setMaximumSize(QtCore.QSize(1000, 500))
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -44,7 +43,7 @@ class menu_window(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_top = QtWidgets.QFrame(self.Top_Bar)
-        self.frame_top.setMaximumSize(QtCore.QSize(70, 40))
+        self.frame_top.setMaximumSize(QtCore.QSize(130, 40))
         self.frame_top.setStyleSheet("background-color: rgb(85, 170, 255);")
         self.frame_top.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -59,12 +58,19 @@ class menu_window(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Btn_toggle.sizePolicy().hasHeightForWidth())
         self.Btn_toggle.setSizePolicy(sizePolicy)
-        self.Btn_toggle.setStyleSheet("color: rgb(255, 255, 255);\n"
-"border: 0px solid;")
+        self.Btn_toggle.setStyleSheet("QPushButton{    \n"
+"    background-image: url(:/Menu/menu1.png);\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"    border-radius: 5px;\n"
+"    background-color: rgb(6, 21, 60);\n"
+"}")
+        self.Btn_toggle.setText("")
         self.Btn_toggle.setObjectName("Btn_toggle")
         self.verticalLayout_2.addWidget(self.Btn_toggle)
         self.horizontalLayout.addWidget(self.frame_top)
         self.frame_toggle = QtWidgets.QFrame(self.Top_Bar)
+        self.frame_toggle.setStyleSheet("background-color: rgb(6, 21, 60);")
         self.frame_toggle.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_toggle.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_toggle.setObjectName("frame_toggle")
@@ -104,7 +110,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_cadProd.setObjectName("Btn_cadProd")
         self.verticalLayout_4.addWidget(self.Btn_cadProd)
@@ -115,7 +121,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_delProd.setObjectName("Btn_delProd")
         self.verticalLayout_4.addWidget(self.Btn_delProd)
@@ -126,7 +132,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_reoEst.setObjectName("Btn_reoEst")
         self.verticalLayout_4.addWidget(self.Btn_reoEst)
@@ -137,7 +143,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_remEst.setObjectName("Btn_remEst")
         self.verticalLayout_4.addWidget(self.Btn_remEst)
@@ -148,7 +154,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_verEst.setObjectName("Btn_verEst")
         self.verticalLayout_4.addWidget(self.Btn_verEst)
@@ -159,7 +165,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_hisSai.setObjectName("Btn_hisSai")
         self.verticalLayout_4.addWidget(self.Btn_hisSai)
@@ -170,7 +176,7 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_procItem.setObjectName("Btn_procItem")
         self.verticalLayout_4.addWidget(self.Btn_procItem)
@@ -181,13 +187,14 @@ class menu_window(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
+"    background-color: rgb(6, 21, 60);\n"
 "}")
         self.Btn_config.setObjectName("Btn_config")
         self.verticalLayout_4.addWidget(self.Btn_config)
         self.verticalLayout_3.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.frame_pages = QtWidgets.QFrame(self.Content)
+        self.frame_pages.setStyleSheet("background-color: rgb(6, 21, 60);")
         self.frame_pages.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_pages.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_pages.setObjectName("frame_pages")
@@ -195,7 +202,7 @@ class menu_window(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.PagesWidget = QtWidgets.QStackedWidget(self.frame_pages)
         self.PagesWidget.setMinimumSize(QtCore.QSize(700, 0))
-        self.PagesWidget.setFixedSize(QtCore.QSize(850,400))
+        self.PagesWidget.setMaximumSize(QtCore.QSize(850, 460))
         self.PagesWidget.setObjectName("PagesWidget")
         self.reg_prod = QtWidgets.QWidget()
         self.reg_prod.setObjectName("reg_prod")
@@ -259,7 +266,7 @@ class menu_window(object):
         self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
-        self.Btn_cadProd.clicked.connect(lambda : self.PagesWidget.setCurrentWidget(self.reg_prod))
+        self.Btn_cadProd.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.reg_prod))
         self.Btn_remEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.remover_est))
         self.Btn_reoEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.repor_est))
         self.Btn_delProd.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.deleta_prod))
@@ -268,15 +275,15 @@ class menu_window(object):
         self.Btn_verEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.verificar_est))
         self.Btn_hisSai.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.hist_saida))
 
-        self.cadProd.pushButton_2.clicked.connect(lambda : self.cadProd.cadastra())
-        self.reposicao.pushButton.clicked.connect(lambda : self.reposicao.repor())
+        self.cadProd.pushButton_2.clicked.connect(lambda: self.cadProd.cadastra())
+        self.reposicao.pushButton.clicked.connect(lambda: self.reposicao.repor())
         self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
         self.remocao.Remove.clicked.connect(lambda: self.remocao.retira())
 
         self.Btn_remEst.clicked.connect(lambda: self.remocao.loadData())
-        self.Btn_delProd.clicked.connect(lambda : self.deleta.loadData())
-        self.Btn_hisSai.clicked.connect(lambda : self.hist.loadData())
-        self.Btn_verEst.clicked.connect(lambda : self.verficarEst.loadData())
+        self.Btn_delProd.clicked.connect(lambda: self.deleta.loadData())
+        self.Btn_hisSai.clicked.connect(lambda: self.hist.loadData())
+        self.Btn_verEst.clicked.connect(lambda: self.verficarEst.loadData())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -284,7 +291,6 @@ class menu_window(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Btn_toggle.setText(_translate("MainWindow", "TOGGLE"))
         self.Btn_cadProd.setText(_translate("MainWindow", "CADASTRAR PRODUTOS"))
         self.Btn_delProd.setText(_translate("MainWindow", "DELETAR PRODUTO"))
         self.Btn_reoEst.setText(_translate("MainWindow", "REPOR ESTOQUE"))

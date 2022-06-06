@@ -21,6 +21,8 @@ class Ui_deleta(object):
         if codigo:
             try:
                 cur.execute("DELETE FROM Produtos WHERE Cod = :codigo", {'codigo': codigo})
+                cur.execute("DELETE FROM Estoque WHERE Cod_prod = :codigo", {'codigo': codigo})
+                cur.execute("DELETE FROM Movimentacao WHERE Cod_prod = :codigo", {'codigo': codigo})
                 data.commit()
             except:
                 print("Codigo invalido")
@@ -33,14 +35,15 @@ class Ui_deleta(object):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
 
-        comando = "SELECT * FROM Produtos"
+        cur.execute("SELECT * FROM Produtos")
+        query = cur.fetchall()
         cur.execute("SELECT COUNT() FROM Produtos")
 
         count = cur.fetchone()
         self.tableWidget.setRowCount(count[0])
 
         tableIndex = 0
-        for row in cur.execute(comando):
+        for row in query:
             cur.execute("SELECT * FROM Categoria WHERE Cod = :codigo", {'codigo': row[1]})
             categoria = cur.fetchone()
             self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
