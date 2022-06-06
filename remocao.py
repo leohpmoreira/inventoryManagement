@@ -28,7 +28,6 @@ class Ui_remocao(object):
     def loadData(self):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
-
         cur.execute("SELECT COUNT() FROM Estoque")
         count = cur.fetchone()
         comando = "SELECT e.Cod_prod, p.Nome, c.Nome, e.Qtd FROM Estoque as e " \

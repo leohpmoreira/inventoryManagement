@@ -22,35 +22,35 @@ class Ui_cadProd(object):
         valor = self.valor.text()
         custo = self.custo.text()
         fabricante = self.fornecedor.text()
-        codigo = self.codigo.text()
 
-        if nome and categoria and valor and fabricante and codigo:
+        if nome and categoria and valor and fabricante and custo:
             val = float(valor)
             cus = float(custo)
             if val > 0 and cus > 0:
                 cur.execute("SELECT * FROM Categoria WHERE Nome = :nome", {'nome': categoria})
                 cod_cat = cur.fetchone()
-                try:
-                    if not cod_cat:
-                        cur.execute("INSERT INTO Categoria VALUES (:cod,:cat)", {'cod': self.countCat, 'cat': categoria})
-                        data.commit()
-
-                    cur.execute("INSERT INTO Produtos VALUES (:cod_prod,:cod_cat,:nome,:fabricante,:custo,:preco)", \
-                                {'cod_prod': codigo, 'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
+                if not cod_cat:
+                    cur.execute("INSERT INTO Categoria VALUES (NULL,:cat)", {'cat': categoria})
+                    cur.execute("SELECT * FROM Categoria WHERE Nome =:cat",{'cat':categoria})
+                    cod_cat = cur.fetchone()
+                    cur.execute("INSERT INTO Produtos VALUES (NULL,:cod_cat,:nome,:fornecedor,:custo,:preco)", \
+                                {'cod_cat': cod_cat[0], 'nome': nome, 'fornecedor': fabricante,
                                  'custo': custo, 'preco': valor})
-                    cur.execute("INSERT INTO Estoque VALUES (:cod, '0')", {'cod': codigo})
-
                     data.commit()
-                    cur.close()
-                    data.close()
-                    self.codigo.clear()
-                    self.fornecedor.clear()
-                    self.nome.clear()
-                    self.categoria.clear()
-                    self.custo.clear()
-                    self.valor.clear()
-                except:
-                    print("Nao e possivel inserir")
+                else:
+                    cur.execute("INSERT INTO Produtos VALUES (NULL,:cod_cat,:nome,:fabricante,:custo,:preco)", \
+                                {'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
+                                'custo': custo, 'preco': valor})
+
+                data.commit()
+                cur.close()
+                data.close()
+                self.quantidade.clear()
+                self.fornecedor.clear()
+                self.nome.clear()
+                self.categoria.clear()
+                self.custo.clear()
+                self.valor.clear()
         else:
             print("Valores nao validos, ou campo em branco")
 
@@ -139,31 +139,11 @@ class Ui_cadProd(object):
         self.categoria.setMaxLength(45)
         self.categoria.setAlignment(QtCore.Qt.AlignCenter)
         self.categoria.setObjectName("categoria")
-        self.codigo = QtWidgets.QLineEdit(Form)
-        self.codigo.setGeometry(QtCore.QRect(140, 180, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
         font.setBold(False)
         font.setWeight(50)
-        self.codigo.setFont(font)
-        self.codigo.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 5px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
-        self.codigo.setMaxLength(45)
-        self.codigo.setAlignment(QtCore.Qt.AlignCenter)
-        self.codigo.setObjectName("codigo")
         self.quantidade = QtWidgets.QLineEdit(Form)
         self.quantidade.setGeometry(QtCore.QRect(330, 60, 151, 51))
         font = QtGui.QFont()
@@ -268,7 +248,7 @@ class Ui_cadProd(object):
         self.onlyfloat = QDoubleValidator()
         self.onlyint = QIntValidator()
 
-        self.codigo.setValidator(self.onlyint)
+        self.quantidade.setValidator(self.onlyint)
         self.custo.setValidator(self.onlyfloat)
         self.valor.setValidator(self.onlyfloat)
 
@@ -282,7 +262,6 @@ class Ui_cadProd(object):
         self.label_2.setText(_translate("Form", "CADASTRAR PRODUTO"))
         self.nome.setPlaceholderText(_translate("Form", "NOME DO PRODUTO"))
         self.categoria.setPlaceholderText(_translate("Form", "CATEGORIA"))
-        self.codigo.setPlaceholderText(_translate("Form", "CÓDIGO"))
         self.quantidade.setPlaceholderText(_translate("Form", "QUANTIDADE"))
         self.valor.setPlaceholderText(_translate("Form", "VALOR"))
         self.custo.setPlaceholderText(_translate("Form", "CUSTO"))

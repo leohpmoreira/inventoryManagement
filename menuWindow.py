@@ -20,6 +20,7 @@ from reposicao import Ui_reposicao
 from verificaEst import Ui_verificaEst
 
 class menu_window(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 500)
@@ -280,6 +281,7 @@ class menu_window(object):
         self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
         self.remocao.Remove.clicked.connect(lambda: self.remocao.retira())
 
+        self.Btn_reoEst.clicked.connect(lambda: self.reposicao.loadData())
         self.Btn_remEst.clicked.connect(lambda: self.remocao.loadData())
         self.Btn_delProd.clicked.connect(lambda: self.deleta.loadData())
         self.Btn_hisSai.clicked.connect(lambda: self.hist.loadData())
