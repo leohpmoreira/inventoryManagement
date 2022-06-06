@@ -82,7 +82,7 @@
         <widget class="QFrame" name="frame_top">
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>130</width>
            <height>40</height>
           </size>
          </property>
@@ -120,11 +120,16 @@
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-border: 0px solid;</string>
+             <string notr="true">QPushButton{	
+	background-image: url(:/Menu/menu1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5px;
+	background-color: rgb(6, 21, 60);
+}</string>
             </property>
             <property name="text">
-             <string>TOGGLE</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -133,6 +138,9 @@ border: 0px solid;</string>
        </item>
        <item>
         <widget class="QFrame" name="frame_toggle">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(6, 21, 60);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -245,7 +253,7 @@ border: 0px solid;</string>
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -267,7 +275,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -289,7 +297,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -311,7 +319,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -333,7 +341,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -355,7 +363,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -377,7 +385,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -399,7 +407,7 @@ QPushButton:hover {
 	color: rgb(255, 255, 255);
 }
 QPushButton:hover {
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(6, 21, 60);
 }</string>
                </property>
                <property name="text">
@@ -415,6 +423,9 @@ QPushButton:hover {
        </item>
        <item>
         <widget class="QFrame" name="frame_pages">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(6, 21, 60);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>

@@ -16,14 +16,28 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>20</y>
-     <width>231</width>
-     <height>41</height>
+     <x>40</x>
+     <y>0</y>
+     <width>601</width>
+     <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(249, 234, 195);</string>
+   </property>
    <property name="text">
-    <string>VERIFICACAO DE ESTOQUE</string>
+    <string>VERIFICAÇÃO DE ESTOQUE</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -34,6 +48,15 @@
      <width>601</width>
      <height>391</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableWidget {
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 10px;
+	padding: 15px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}</string>
    </property>
    <column>
     <property name="text">
