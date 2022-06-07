@@ -14,7 +14,7 @@ from configuracoes import Ui_config
 from historico import Ui_historico
 from procura import Ui_procura
 from verificaEst import Ui_verificaEst
-from pdfWindow import Ui_Form
+from RELATORIO import Ui_Form
 
 class menuSecundario_window(object):
     def setupUi(self, MainWindow):

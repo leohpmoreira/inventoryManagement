@@ -89,8 +89,8 @@ class Ui_procura(object):
         self.label_2.setObjectName("label_2")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(100, 200, 700, 300))
-        self.tableWidget.setMinimumSize(QtCore.QSize(700, 0))
-        self.tableWidget.setMaximumSize(QtCore.QSize(700, 300))
+        self.tableWidget.setMinimumSize(QtCore.QSize(600, 500))
+        self.tableWidget.setMaximumSize(QtCore.QSize(600, 500))
         self.tableWidget.setStyleSheet("QTableWidget {\n"
                                        "    border: 3px solid rgb(245, 222, 179);\n"
                                        "    border-radius: 10px;\n"

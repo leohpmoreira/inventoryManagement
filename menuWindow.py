@@ -18,6 +18,7 @@ from procura import Ui_procura
 from remocao import Ui_remocao
 from reposicao import Ui_reposicao
 from verificaEst import Ui_verificaEst
+from RELATORIO import Ui_Form
 
 
 class menu_window(object):
@@ -268,8 +269,8 @@ class menu_window(object):
         self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
-        """self.pdf = Ui_Form()
-        self.pdf.setupUi(self.pdf_window)"""
+        self.pdf = Ui_Form()
+        self.pdf.setupUi(self.pdf_window)
         self.pdf_window.show()
 
         self.Btn_cadProd.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.reg_prod))
@@ -286,7 +287,7 @@ class menu_window(object):
         self.reposicao.pushButton.clicked.connect(lambda: self.reposicao.repor())
         self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
         self.remocao.Remove.clicked.connect(lambda: self.remocao.retira())
-        self.config.cria_conta_2.clicked.connect(lambda: self.config_t.logout())
+        #self.config.cria_conta_2.clicked.connect(lambda: self.config_t.logout())
 
         self.Btn_reoEst.clicked.connect(lambda: self.reposicao.loadData())
         self.Btn_remEst.clicked.connect(lambda: self.remocao.loadData())

@@ -221,27 +221,6 @@ class Ui_config(object):
         self.pushButton_close.setText("")
         self.pushButton_close.setObjectName("pushButton_close")
         self.horizontalLayout_3.addWidget(self.pushButton_close)
-        self.cria_conta_2 = QtWidgets.QPushButton(Form)
-        self.cria_conta_2.setGeometry(QtCore.QRect(380, 250, 241, 51))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setBold(True)
-        font.setWeight(75)
-        self.cria_conta_2.setFont(font)
-        self.cria_conta_2.setStyleSheet("QPushButton{    \n"
-                                        "    border: 3px solid rgb(245, 222, 179);\n"
-                                        "    border-radius: 25px;\n"
-                                        "    background-color:rgb(249, 234, 195);\n"
-                                        "    color: rgb(45, 45, 45);\n"
-                                        "}\n"
-                                        "QPushButton:hover{    \n"
-                                        "    border: 3px solid rgb(55, 55, 55);\n"
-                                        "}\n"
-                                        "QPushButton:pressed{    \n"
-                                        "    background-color: rgb(135, 206, 250);\n"
-                                        "    color: rgb(45, 45, 45);\n"
-                                        "}")
-        self.cria_conta_2.setObjectName("cria_conta_2")
         self.pushButton_close.setVisible(False)
         self.label_erro.setVisible(False)
         self.frame_erro.setVisible(False)
@@ -379,4 +358,3 @@ class Ui_config(object):
         self.cria_conta.setText(_translate("Form", "CRIAR CONTA"))
         self.edita_senha.setText(_translate("Form", "EDITAR SENHA"))
         self.label_erro.setText(_translate("Form", "Error"))
-        self.cria_conta_2.setText(_translate("Form", "FAZER LOGOUT"))
