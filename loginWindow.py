@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
 
 from menuWindow import menu_window
+from menuSecundario import menuSecundario_window
 
 current = "empty"
 
@@ -231,7 +232,8 @@ class main_window(object):
         print("Tentativa de login com dados: ", user, pwd)
         cur.execute("SELECT * FROM Login WHERE UserID = :login AND Password = :passwd",
                     {'login': self.lineEdit_user.text(), 'passwd': pwd})
-        if not cur.fetchone():
+        tipo = cur.fetchone()
+        if not tipo:
             print("Login failed")
             self.pushButton_close.setVisible(True)
             self.label_erro.setVisible(True)
@@ -245,7 +247,10 @@ class main_window(object):
             self.close()
             self.window = QtWidgets.QMainWindow()
             self.window.setFixedSize(QtCore.QSize(1000,500))
-            self.ui = menu_window()
+            if tipo[2].upper() == 'A':
+                self.ui = menu_window()
+            else:
+                self.ui = menuSecundario_window()
             self.ui.setupUi(self.window)
             self.window.show()
 

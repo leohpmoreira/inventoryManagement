@@ -355,10 +355,6 @@ background-position: center;
               <height>460</height>
              </size>
             </property>
-            <widget class="QWidget" name="reg_prod"/>
-            <widget class="QWidget" name="deleta_prod"/>
-            <widget class="QWidget" name="repor_est"/>
-            <widget class="QWidget" name="remover_est"/>
             <widget class="QWidget" name="verificar_est"/>
             <widget class="QWidget" name="hist_saida"/>
             <widget class="QWidget" name="procura_item"/>

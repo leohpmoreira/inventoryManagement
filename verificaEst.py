@@ -72,6 +72,8 @@ class Ui_verificaEst(object):
         self.tableWidget.setColumnWidth(2, 150)
         self.tableWidget.setColumnWidth(3, 150)
 
+        self.loadData()
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 

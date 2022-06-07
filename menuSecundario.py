@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Menuzin.ui'
+# Form implementation generated from reading ui file 'MenuSecundario.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -10,16 +10,13 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from CadProd import Ui_cadProd
 from configuracoes import Ui_config
-from deletarproduto import Ui_deleta
 from historico import Ui_historico
 from procura import Ui_procura
-from remocao import Ui_remocao
-from reposicao import Ui_reposicao
 from verificaEst import Ui_verificaEst
 
-class menu_window(object):
+
+class menuSecundario_window(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 500)
@@ -43,8 +40,8 @@ class menu_window(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_top = QtWidgets.QFrame(self.Top_Bar)
-        self.frame_top.setMaximumSize(QtCore.QSize(130, 40))
-        self.frame_top.setStyleSheet("background-color: rgb(85, 170, 255);")
+        self.frame_top.setMaximumSize(QtCore.QSize(123, 40))
+        self.frame_top.setStyleSheet("background-color: rgb(93, 138, 168);")
         self.frame_top.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_top.setObjectName("frame_top")
@@ -54,7 +51,7 @@ class menu_window(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.horizontalLayout.addWidget(self.frame_top)
         self.frame_toggle = QtWidgets.QFrame(self.Top_Bar)
-        self.frame_toggle.setStyleSheet("background-color: rgb(6, 21, 60);")
+        self.frame_toggle.setStyleSheet("background-color: rgb(35, 35, 35);")
         self.frame_toggle.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_toggle.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_toggle.setObjectName("frame_toggle")
@@ -70,7 +67,7 @@ class menu_window(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_left_menu = QtWidgets.QFrame(self.Content)
         self.frame_left_menu.setMinimumSize(QtCore.QSize(225, 0))
-        self.frame_left_menu.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.frame_left_menu.setMaximumSize(QtCore.QSize(250, 16777215))
         self.frame_left_menu.setStyleSheet("background-color: rgb(35, 35, 35);")
         self.frame_left_menu.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_left_menu.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -87,52 +84,8 @@ class menu_window(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.Btn_cadProd = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_cadProd.setMinimumSize(QtCore.QSize(0, 62))
-        self.Btn_cadProd.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(6, 21, 60);\n"
-"}")
-        self.Btn_cadProd.setObjectName("Btn_cadProd")
-        self.verticalLayout_4.addWidget(self.Btn_cadProd)
-        self.Btn_delProd = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_delProd.setMinimumSize(QtCore.QSize(0, 62))
-        self.Btn_delProd.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(6, 21, 60);\n"
-"}")
-        self.Btn_delProd.setObjectName("Btn_delProd")
-        self.verticalLayout_4.addWidget(self.Btn_delProd)
-        self.Btn_reoEst = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_reoEst.setMinimumSize(QtCore.QSize(0, 62))
-        self.Btn_reoEst.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(6, 21, 60);\n"
-"}")
-        self.Btn_reoEst.setObjectName("Btn_reoEst")
-        self.verticalLayout_4.addWidget(self.Btn_reoEst)
-        self.Btn_remEst = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_remEst.setMinimumSize(QtCore.QSize(0, 62))
-        self.Btn_remEst.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(6, 21, 60);\n"
-"}")
-        self.Btn_remEst.setObjectName("Btn_remEst")
-        self.verticalLayout_4.addWidget(self.Btn_remEst)
         self.Btn_verEst = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_verEst.setMinimumSize(QtCore.QSize(0, 62))
+        self.Btn_verEst.setMinimumSize(QtCore.QSize(0, 60))
         self.Btn_verEst.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(35, 35, 35);\n"
 "    color: rgb(255, 255, 255);\n"
@@ -143,7 +96,7 @@ class menu_window(object):
         self.Btn_verEst.setObjectName("Btn_verEst")
         self.verticalLayout_4.addWidget(self.Btn_verEst)
         self.Btn_hisSai = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_hisSai.setMinimumSize(QtCore.QSize(0, 62))
+        self.Btn_hisSai.setMinimumSize(QtCore.QSize(0, 60))
         self.Btn_hisSai.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(35, 35, 35);\n"
 "    color: rgb(255, 255, 255);\n"
@@ -154,7 +107,7 @@ class menu_window(object):
         self.Btn_hisSai.setObjectName("Btn_hisSai")
         self.verticalLayout_4.addWidget(self.Btn_hisSai)
         self.Btn_procItem = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_procItem.setMinimumSize(QtCore.QSize(0, 62))
+        self.Btn_procItem.setMinimumSize(QtCore.QSize(0, 60))
         self.Btn_procItem.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(35, 35, 35);\n"
 "    color: rgb(255, 255, 255);\n"
@@ -165,7 +118,7 @@ class menu_window(object):
         self.Btn_procItem.setObjectName("Btn_procItem")
         self.verticalLayout_4.addWidget(self.Btn_procItem)
         self.Btn_config = QtWidgets.QPushButton(self.frame_top_menus)
-        self.Btn_config.setMinimumSize(QtCore.QSize(0, 62))
+        self.Btn_config.setMinimumSize(QtCore.QSize(0, 60))
         self.Btn_config.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(35, 35, 35);\n"
 "    color: rgb(255, 255, 255);\n"
@@ -176,6 +129,17 @@ class menu_window(object):
         self.Btn_config.setObjectName("Btn_config")
         self.verticalLayout_4.addWidget(self.Btn_config)
         self.verticalLayout_3.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
+        self.frame = QtWidgets.QFrame(self.frame_left_menu)
+        self.frame.setStyleSheet("QFrame{\n"
+"background-image: url(:/Logo/AAAA.png);\n"
+"border-radius: 20px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"}")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_3.addWidget(self.frame)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.frame_pages = QtWidgets.QFrame(self.Content)
         self.frame_pages.setStyleSheet("background-color: rgb(93, 138, 168);")
@@ -188,18 +152,6 @@ class menu_window(object):
         self.PagesWidget.setMinimumSize(QtCore.QSize(700, 0))
         self.PagesWidget.setMaximumSize(QtCore.QSize(850, 460))
         self.PagesWidget.setObjectName("PagesWidget")
-        self.reg_prod = QtWidgets.QWidget()
-        self.reg_prod.setObjectName("reg_prod")
-        self.PagesWidget.addWidget(self.reg_prod)
-        self.deleta_prod = QtWidgets.QWidget()
-        self.deleta_prod.setObjectName("deleta_prod")
-        self.PagesWidget.addWidget(self.deleta_prod)
-        self.repor_est = QtWidgets.QWidget()
-        self.repor_est.setObjectName("repor_est")
-        self.PagesWidget.addWidget(self.repor_est)
-        self.remover_est = QtWidgets.QWidget()
-        self.remover_est.setObjectName("remover_est")
-        self.PagesWidget.addWidget(self.remover_est)
         self.verificar_est = QtWidgets.QWidget()
         self.verificar_est.setObjectName("verificar_est")
         self.PagesWidget.addWidget(self.verificar_est)
@@ -217,17 +169,9 @@ class menu_window(object):
         self.verticalLayout.addWidget(self.Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
-        self.cadProd = Ui_cadProd()
-        self.cadProd.setupUi(self.reg_prod)
-        self.reg_prod.show()
-
         self.config_t = Ui_config()
         self.config_t.setupUi(self.config)
         self.config.show()
-
-        self.deleta = Ui_deleta()
-        self.deleta.setupUi(self.deleta_prod)
-        self.deleta_prod.show()
 
         self.hist = Ui_historico()
         self.hist.setupUi(self.hist_saida)
@@ -237,36 +181,15 @@ class menu_window(object):
         self.procura.setupUi(self.procura_item)
         self.procura_item.show()
 
-        self.remocao = Ui_remocao()
-        self.remocao.setupUi(self.remover_est)
-        self.remover_est.show()
-
-        self.reposicao = Ui_reposicao()
-        self.reposicao.setupUi(self.repor_est)
-        self.reposicao.loadData()
-        self.remover_est.show()
-
         self.verficarEst = Ui_verificaEst()
         self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
-        self.Btn_cadProd.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.reg_prod))
-        self.Btn_remEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.remover_est))
-        self.Btn_reoEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.repor_est))
-        self.Btn_delProd.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.deleta_prod))
         self.Btn_procItem.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.procura_item))
         self.Btn_config.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.config))
         self.Btn_verEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.verificar_est))
         self.Btn_hisSai.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.hist_saida))
 
-        self.cadProd.pushButton_2.clicked.connect(lambda: self.cadProd.cadastra())
-        self.reposicao.pushButton.clicked.connect(lambda: self.reposicao.repor())
-        self.deleta.pushButton.clicked.connect(lambda: self.deleta.deleta())
-        self.remocao.Remove.clicked.connect(lambda: self.remocao.retira())
-
-        self.Btn_reoEst.clicked.connect(lambda: self.reposicao.loadData())
-        self.Btn_remEst.clicked.connect(lambda: self.remocao.loadData())
-        self.Btn_delProd.clicked.connect(lambda: self.deleta.loadData())
         self.Btn_hisSai.clicked.connect(lambda: self.hist.loadData())
         self.Btn_verEst.clicked.connect(lambda: self.verficarEst.loadData())
 
@@ -276,12 +199,8 @@ class menu_window(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Btn_cadProd.setText(_translate("MainWindow", "CADASTRAR PRODUTOS"))
-        self.Btn_delProd.setText(_translate("MainWindow", "DELETAR PRODUTO"))
-        self.Btn_reoEst.setText(_translate("MainWindow", "REPOR ESTOQUE"))
-        self.Btn_remEst.setText(_translate("MainWindow", "REMOVER DO ESTOQUE"))
         self.Btn_verEst.setText(_translate("MainWindow", "VERIFICAR ESTOQUE"))
-        self.Btn_hisSai.setText(_translate("MainWindow", "HISTÓRICO DE MOVIMENTAÇÕES"))
+        self.Btn_hisSai.setText(_translate("MainWindow", "HISTÓRICO DE MOVIMENTAÇÃO"))
         self.Btn_procItem.setText(_translate("MainWindow", "PROCURAR ITEM"))
         self.Btn_config.setText(_translate("MainWindow", "CONFIGURAÇÕES"))
 import file_rc
