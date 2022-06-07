@@ -16,12 +16,14 @@ class Ui_verificaEst(object):
     def loadData(self):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
-        cur.execute("SELECT COUNT() FROM ESTOQUE")
+        cur.execute("SELECT COUNT() FROM Estoque")
         number = cur.fetchone()
         self.tableWidget.setRowCount(number[0])
         comando = "SELECT * FROM Estoque"
+        cur.execute(comando)
+        query = cur.fetchall()
         tableIndex = 0
-        for row in cur.execute(comando):
+        for row in  query:
             cur.execute("SELECT * FROM Produtos WHERE Cod = :codigo", {'codigo': row[0]})
             produto = cur.fetchone()
             self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))
