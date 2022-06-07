@@ -28,8 +28,8 @@
   <widget class="QLineEdit" name="Usuario">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>90</y>
+     <x>170</x>
+     <y>60</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -71,8 +71,8 @@ QLineEdit:focus {
   <widget class="QLineEdit" name="senha_user">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>150</y>
+     <x>170</x>
+     <y>120</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -114,8 +114,8 @@ QLineEdit:focus {
   <widget class="QLineEdit" name="Tipo">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>210</y>
+     <x>170</x>
+     <y>180</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -157,8 +157,8 @@ QLineEdit:focus {
   <widget class="QLineEdit" name="Senha_antiga">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>90</y>
+     <x>420</x>
+     <y>60</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -200,8 +200,8 @@ QLineEdit:focus {
   <widget class="QLineEdit" name="Senha_nova">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>150</y>
+     <x>420</x>
+     <y>120</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -243,8 +243,8 @@ QLineEdit:focus {
   <widget class="QPushButton" name="cria_conta">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>280</y>
+     <x>170</x>
+     <y>250</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -278,8 +278,8 @@ QPushButton:pressed{
   <widget class="QPushButton" name="edita_senha">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>220</y>
+     <x>420</x>
+     <y>190</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -388,6 +388,41 @@ QPushButton:pressed {
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="cria_conta_2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>250</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{	
+	border: 3px solid rgb(245, 222, 179);
+	border-radius: 25px;
+	background-color:rgb(249, 234, 195);
+	color: rgb(45, 45, 45);
+}
+QPushButton:hover{	
+	border: 3px solid rgb(55, 55, 55);
+}
+QPushButton:pressed{	
+	background-color: rgb(135, 206, 250);
+	color: rgb(45, 45, 45);
+}</string>
+   </property>
+   <property name="text">
+    <string>FAZER LOGOUT</string>
+   </property>
   </widget>
  </widget>
  <resources>

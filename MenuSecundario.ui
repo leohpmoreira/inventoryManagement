@@ -284,6 +284,28 @@ QPushButton:hover {
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(35, 35, 35);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover {
+	background-color: rgb(6, 21, 60);
+}</string>
+               </property>
+               <property name="text">
+                <string>GERAR RELATÓRIO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="Btn_config">
                <property name="minimumSize">
                 <size>
