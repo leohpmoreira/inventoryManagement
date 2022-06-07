@@ -14,7 +14,7 @@ from configuracoes import Ui_config
 from historico import Ui_historico
 from procura import Ui_procura
 from verificaEst import Ui_verificaEst
-
+from pdfWindow import Ui_Form
 
 class menuSecundario_window(object):
     def setupUi(self, MainWindow):
@@ -117,6 +117,17 @@ class menuSecundario_window(object):
 "}")
         self.Btn_procItem.setObjectName("Btn_procItem")
         self.verticalLayout_4.addWidget(self.Btn_procItem)
+        self.pushButton = QtWidgets.QPushButton(self.frame_top_menus)
+        self.pushButton.setMinimumSize(QtCore.QSize(0, 60))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+                                      "    background-color: rgb(35, 35, 35);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(6, 21, 60);\n"
+                                      "}")
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout_4.addWidget(self.pushButton)
         self.Btn_config = QtWidgets.QPushButton(self.frame_top_menus)
         self.Btn_config.setMinimumSize(QtCore.QSize(0, 60))
         self.Btn_config.setStyleSheet("QPushButton {\n"
@@ -155,6 +166,9 @@ class menuSecundario_window(object):
         self.verificar_est = QtWidgets.QWidget()
         self.verificar_est.setObjectName("verificar_est")
         self.PagesWidget.addWidget(self.verificar_est)
+        self.pdfWindow = QtWidgets.QWidget()
+        self.verificar_est.setObjectName("pdfWindow")
+        self.PagesWidget.addWidget(self.pdfWindow)
         self.hist_saida = QtWidgets.QWidget()
         self.hist_saida.setObjectName("hist_saida")
         self.PagesWidget.addWidget(self.hist_saida)
@@ -185,11 +199,15 @@ class menuSecundario_window(object):
         self.verficarEst.setupUi(self.verificar_est)
         self.verificar_est.show()
 
+        self.pdf = Ui_Form()
+        self.pdf.setupUi(self.pdfWindow)
+        self.pdfWindow.show()
+
         self.Btn_procItem.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.procura_item))
         self.Btn_config.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.config))
         self.Btn_verEst.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.verificar_est))
         self.Btn_hisSai.clicked.connect(lambda: self.PagesWidget.setCurrentWidget(self.hist_saida))
-
+        self.pushButton.clicked.connect(lambda : self.PagesWidget.setCurrentWidget(self.pdfWindow))
         self.Btn_hisSai.clicked.connect(lambda: self.hist.loadData())
         self.Btn_verEst.clicked.connect(lambda: self.verficarEst.loadData())
 
@@ -202,5 +220,6 @@ class menuSecundario_window(object):
         self.Btn_verEst.setText(_translate("MainWindow", "VERIFICAR ESTOQUE"))
         self.Btn_hisSai.setText(_translate("MainWindow", "HISTÓRICO DE MOVIMENTAÇÃO"))
         self.Btn_procItem.setText(_translate("MainWindow", "PROCURAR ITEM"))
+        self.pushButton.setText(_translate("MainWindow", "GERAR RELATÓRIO"))
         self.Btn_config.setText(_translate("MainWindow", "CONFIGURAÇÕES"))
 import file_rc
