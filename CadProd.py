@@ -31,7 +31,7 @@ class Ui_cadProd(object):
                 cod_cat = cur.fetchone()
                 if not cod_cat:
                     cur.execute("INSERT INTO Categoria VALUES (NULL,:cat)", {'cat': categoria})
-                    cur.execute("SELECT * FROM Categoria WHERE Nome =:cat",{'cat':categoria})
+                    cur.execute("SELECT * FROM Categoria WHERE Nome =:cat", {'cat': categoria})
                     cod_cat = cur.fetchone()
                     cur.execute("INSERT INTO Produtos VALUES (NULL,:cod_cat,:nome,:fornecedor,:custo,:preco)", \
                                 {'cod_cat': cod_cat[0], 'nome': nome, 'fornecedor': fabricante,
@@ -40,12 +40,11 @@ class Ui_cadProd(object):
                 else:
                     cur.execute("INSERT INTO Produtos VALUES (NULL,:cod_cat,:nome,:fabricante,:custo,:preco)", \
                                 {'cod_cat': cod_cat[0], 'nome': nome, 'fabricante': fabricante,
-                                'custo': custo, 'preco': valor})
+                                 'custo': custo, 'preco': valor})
 
                 data.commit()
                 cur.close()
                 data.close()
-                self.quantidade.clear()
                 self.fornecedor.clear()
                 self.nome.clear()
                 self.categoria.clear()
@@ -56,7 +55,7 @@ class Ui_cadProd(object):
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(800, 400)
+        Form.resize(800, 401)
         self.pushButton_2 = QtWidgets.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(320, 240, 191, 51))
         font = QtGui.QFont()
@@ -78,19 +77,19 @@ class Ui_cadProd(object):
 "    color: rgb(45, 45, 45);\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(140, 10, 531, 31))
+        self.label = QtWidgets.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(140, 10, 531, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(16)
+        font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color:rgb(249, 234, 195);")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
+        self.label.setFont(font)
+        self.label.setStyleSheet("color:rgb(249, 234, 195);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
         self.nome = QtWidgets.QLineEdit(Form)
-        self.nome.setGeometry(QtCore.QRect(140, 60, 151, 51))
+        self.nome.setGeometry(QtCore.QRect(240, 50, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -115,7 +114,7 @@ class Ui_cadProd(object):
         self.nome.setAlignment(QtCore.Qt.AlignCenter)
         self.nome.setObjectName("nome")
         self.categoria = QtWidgets.QLineEdit(Form)
-        self.categoria.setGeometry(QtCore.QRect(140, 120, 151, 51))
+        self.categoria.setGeometry(QtCore.QRect(240, 110, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -139,38 +138,8 @@ class Ui_cadProd(object):
         self.categoria.setMaxLength(45)
         self.categoria.setAlignment(QtCore.Qt.AlignCenter)
         self.categoria.setObjectName("categoria")
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.quantidade = QtWidgets.QLineEdit(Form)
-        self.quantidade.setGeometry(QtCore.QRect(330, 60, 151, 51))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.quantidade.setFont(font)
-        self.quantidade.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 5px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
-        self.quantidade.setMaxLength(45)
-        self.quantidade.setAlignment(QtCore.Qt.AlignCenter)
-        self.quantidade.setObjectName("quantidade")
         self.valor = QtWidgets.QLineEdit(Form)
-        self.valor.setGeometry(QtCore.QRect(330, 120, 151, 51))
+        self.valor.setGeometry(QtCore.QRect(420, 50, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -195,7 +164,7 @@ class Ui_cadProd(object):
         self.valor.setAlignment(QtCore.Qt.AlignCenter)
         self.valor.setObjectName("valor")
         self.custo = QtWidgets.QLineEdit(Form)
-        self.custo.setGeometry(QtCore.QRect(520, 60, 151, 51))
+        self.custo.setGeometry(QtCore.QRect(420, 110, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -220,7 +189,7 @@ class Ui_cadProd(object):
         self.custo.setAlignment(QtCore.Qt.AlignCenter)
         self.custo.setObjectName("custo")
         self.fornecedor = QtWidgets.QLineEdit(Form)
-        self.fornecedor.setGeometry(QtCore.QRect(520, 120, 151, 51))
+        self.fornecedor.setGeometry(QtCore.QRect(330, 170, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -248,7 +217,6 @@ class Ui_cadProd(object):
         self.onlyfloat = QDoubleValidator()
         self.onlyint = QIntValidator()
 
-        self.quantidade.setValidator(self.onlyint)
         self.custo.setValidator(self.onlyfloat)
         self.valor.setValidator(self.onlyfloat)
 
@@ -259,10 +227,9 @@ class Ui_cadProd(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.pushButton_2.setText(_translate("Form", "CADASTRAR"))
-        self.label_2.setText(_translate("Form", "CADASTRAR PRODUTO"))
+        self.label.setText(_translate("Form", "CADASTRAR PRODUTO"))
         self.nome.setPlaceholderText(_translate("Form", "NOME DO PRODUTO"))
         self.categoria.setPlaceholderText(_translate("Form", "CATEGORIA"))
-        self.quantidade.setPlaceholderText(_translate("Form", "QUANTIDADE"))
         self.valor.setPlaceholderText(_translate("Form", "VALOR"))
         self.custo.setPlaceholderText(_translate("Form", "CUSTO"))
         self.fornecedor.setPlaceholderText(_translate("Form", "FORNECEDOR"))

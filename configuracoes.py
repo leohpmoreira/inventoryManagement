@@ -9,11 +9,11 @@
 import sqlite3
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 import loginWindow
 
 
 class Ui_config(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(850, 440)
