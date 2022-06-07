@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>400</height>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -161,49 +161,6 @@ QLineEdit:focus {
     <string>CATEGORIA</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="valor_2">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>170</y>
-     <width>151</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>8</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit {
-	border: 3px solid rgb(245, 222, 179);
-	border-radius: 5px;
-	padding: 15px;
-	background-color:rgb(249, 234, 195);
-	color: rgb(45, 45, 45);
-}
-QLineEdit:hover {
-	border: 3px solid rgb(55, 55, 55);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(135, 206, 250);
-	color: rgb(45, 45, 45);
-}</string>
-   </property>
-   <property name="maxLength">
-    <number>45</number>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
-    <string>CÓDIGO</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="valor">
    <property name="geometry">
     <rect>
@@ -293,7 +250,7 @@ QLineEdit:focus {
   <widget class="QLineEdit" name="fornecedor">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>330</x>
      <y>170</y>
      <width>151</width>
      <height>51</height>
