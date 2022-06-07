@@ -14,6 +14,12 @@ from PyQt5.QtGui import QIntValidator
 
 class Ui_remocao(object):
 
+    def val_qtd(self,quantidade):
+        if quantidade <= 5:
+            self.label_erro.setText("ATENÇÃO ESTE PRODUTO ESTA ABAIXO DO ESTOQUE MINÍMO")
+            self.show_error()
+
+
     def valida(self, codigo, quantidade):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
@@ -59,6 +65,9 @@ class Ui_remocao(object):
                 data.commit()
             else:
                 print("Quantidade invalida")
+        cur.execute("SELECT Qtd FROM Estoque WHERE Cod_prod= :cod", {'cod': int(cod[0])})
+        quantidade = cur.fetchone()
+        self.val_qtd(quantidade[0])
         data.close()
         self.loadData()
 
@@ -169,6 +178,46 @@ class Ui_remocao(object):
 "    color: rgb(45, 45, 45);\n"
 "}")
         self.Remove.setObjectName("Remove")
+        self.frame_erro = QtWidgets.QFrame(Form)
+        self.frame_erro.setGeometry(QtCore.QRect(170, 10, 450, 29))
+        self.frame_erro.setMaximumSize(QtCore.QSize(450, 16777215))
+        self.frame_erro.setStyleSheet("background-color: rgb(255, 85, 127);\n"
+                                      "border-radius: 10px;")
+        self.frame_erro.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_erro.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_erro.setObjectName("frame_erro")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_erro)
+        self.horizontalLayout_3.setContentsMargins(10, 3, 10, 3)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_erro = QtWidgets.QLabel(self.frame_erro)
+        self.label_erro.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_erro.setObjectName("label_erro")
+        self.horizontalLayout_3.addWidget(self.label_erro)
+        self.pushButton_close = QtWidgets.QPushButton(self.frame_erro)
+        self.pushButton_close.clicked.connect(lambda: self.hide_error())
+        self.pushButton_close.setMaximumSize(QtCore.QSize(20, 20))
+        self.pushButton_close.setStyleSheet("QPushButton {\n"
+                                            "    border-radius: 5px;    \n"
+                                            "    background-image: url(:/Close_Image/Images/cil-x.png);\n"
+                                            "    background-position: center;\n"
+                                            "    background-color: rgb(255, 0, 127);\n"
+                                            "}\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: rgb(6, 21, 60);\n"
+                                            "    color: rgb(200, 200, 200);\n"
+                                            "}\n"
+                                            "QPushButton:pressed {\n"
+                                            "    background-color: rgb(35, 35, 35);\n"
+                                            "    color: rgb(200, 200, 200);\n"
+                                            "}")
+        self.pushButton_close.setText("")
+        self.pushButton_close.setObjectName("pushButton_close")
+        self.horizontalLayout_3.addWidget(self.pushButton_close)
+        self.pushButton_close.setVisible(False)
+        self.label_erro.setVisible(False)
+        self.frame_erro.setVisible(False)
+
+
 
         valida = QIntValidator()
         self.Codigo.setValidator(valida)
@@ -177,6 +226,16 @@ class Ui_remocao(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def show_error(self):
+        self.pushButton_close.setVisible(True)
+        self.label_erro.setVisible(True)
+        self.frame_erro.setVisible(True)
+
+    def hide_error(self):
+        self.pushButton_close.setVisible(False)
+        self.label_erro.setVisible(False)
+        self.frame_erro.setVisible(False)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -193,3 +252,4 @@ class Ui_remocao(object):
         self.Codigo.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))
         self.Qtd.setPlaceholderText(_translate("Form", "QUANTIDADE"))
         self.Remove.setText(_translate("Form", "REMOVER"))
+        self.label_erro.setText(_translate("Form", "Error"))
