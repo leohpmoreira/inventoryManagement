@@ -20,7 +20,7 @@ class Ui_config(object):
         Form.setMinimumSize(QtCore.QSize(850, 440))
         Form.setMaximumSize(QtCore.QSize(850, 440))
         self.Usuario = QtWidgets.QLineEdit(Form)
-        self.Usuario.setGeometry(QtCore.QRect(450, 90, 151, 51))
+        self.Usuario.setGeometry(QtCore.QRect(170, 60, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -45,7 +45,7 @@ class Ui_config(object):
         self.Usuario.setAlignment(QtCore.Qt.AlignCenter)
         self.Usuario.setObjectName("Usuario")
         self.senha_user = QtWidgets.QLineEdit(Form)
-        self.senha_user.setGeometry(QtCore.QRect(450, 150, 151, 51))
+        self.senha_user.setGeometry(QtCore.QRect(170, 120, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -70,7 +70,7 @@ class Ui_config(object):
         self.senha_user.setAlignment(QtCore.Qt.AlignCenter)
         self.senha_user.setObjectName("senha_user")
         self.Tipo = QtWidgets.QLineEdit(Form)
-        self.Tipo.setGeometry(QtCore.QRect(450, 210, 151, 51))
+        self.Tipo.setGeometry(QtCore.QRect(170, 180, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -95,7 +95,7 @@ class Ui_config(object):
         self.Tipo.setAlignment(QtCore.Qt.AlignCenter)
         self.Tipo.setObjectName("Tipo")
         self.Senha_antiga = QtWidgets.QLineEdit(Form)
-        self.Senha_antiga.setGeometry(QtCore.QRect(180, 90, 151, 51))
+        self.Senha_antiga.setGeometry(QtCore.QRect(420, 60, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -120,7 +120,7 @@ class Ui_config(object):
         self.Senha_antiga.setAlignment(QtCore.Qt.AlignCenter)
         self.Senha_antiga.setObjectName("Senha_antiga")
         self.Senha_nova = QtWidgets.QLineEdit(Form)
-        self.Senha_nova.setGeometry(QtCore.QRect(180, 150, 151, 51))
+        self.Senha_nova.setGeometry(QtCore.QRect(420, 120, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -144,8 +144,8 @@ class Ui_config(object):
         self.Senha_nova.setText("")
         self.Senha_nova.setAlignment(QtCore.Qt.AlignCenter)
         self.Senha_nova.setObjectName("Senha_nova")
-        self.cria_conta = QtWidgets.QPushButton(Form, clicked = lambda: self.newUser())
-        self.cria_conta.setGeometry(QtCore.QRect(450, 280, 151, 51))
+        self.cria_conta = QtWidgets.QPushButton(Form, clicked=lambda: self.newUser())
+        self.cria_conta.setGeometry(QtCore.QRect(170, 250, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setBold(True)
@@ -165,8 +165,8 @@ class Ui_config(object):
                                       "    color: rgb(45, 45, 45);\n"
                                       "}")
         self.cria_conta.setObjectName("cria_conta")
-        self.edita_senha = QtWidgets.QPushButton(Form, clicked = lambda: self.changePassword())
-        self.edita_senha.setGeometry(QtCore.QRect(180, 220, 151, 51))
+        self.edita_senha = QtWidgets.QPushButton(Form, clicked=lambda: self.changePassword())
+        self.edita_senha.setGeometry(QtCore.QRect(420, 190, 151, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setBold(True)
@@ -206,7 +206,7 @@ class Ui_config(object):
         self.pushButton_close.setMaximumSize(QtCore.QSize(20, 20))
         self.pushButton_close.setStyleSheet("QPushButton {\n"
                                             "    border-radius: 5px;    \n"
-                                            "    background-image: url(:/Close_Image/Images/cil-x.png);\n"
+                                            "    background-image: url(:/Fechar/cil-x.png);\n"
                                             "    background-position: center;\n"
                                             "    background-color: rgb(255, 0, 127);\n"
                                             "}\n"
@@ -221,6 +221,27 @@ class Ui_config(object):
         self.pushButton_close.setText("")
         self.pushButton_close.setObjectName("pushButton_close")
         self.horizontalLayout_3.addWidget(self.pushButton_close)
+        self.cria_conta_2 = QtWidgets.QPushButton(Form)
+        self.cria_conta_2.setGeometry(QtCore.QRect(380, 250, 241, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.cria_conta_2.setFont(font)
+        self.cria_conta_2.setStyleSheet("QPushButton{    \n"
+                                        "    border: 3px solid rgb(245, 222, 179);\n"
+                                        "    border-radius: 25px;\n"
+                                        "    background-color:rgb(249, 234, 195);\n"
+                                        "    color: rgb(45, 45, 45);\n"
+                                        "}\n"
+                                        "QPushButton:hover{    \n"
+                                        "    border: 3px solid rgb(55, 55, 55);\n"
+                                        "}\n"
+                                        "QPushButton:pressed{    \n"
+                                        "    background-color: rgb(135, 206, 250);\n"
+                                        "    color: rgb(45, 45, 45);\n"
+                                        "}")
+        self.cria_conta_2.setObjectName("cria_conta_2")
         self.pushButton_close.setVisible(False)
         self.label_erro.setVisible(False)
         self.frame_erro.setVisible(False)
@@ -358,3 +379,4 @@ class Ui_config(object):
         self.cria_conta.setText(_translate("Form", "CRIAR CONTA"))
         self.edita_senha.setText(_translate("Form", "EDITAR SENHA"))
         self.label_erro.setText(_translate("Form", "Error"))
+        self.cria_conta_2.setText(_translate("Form", "FAZER LOGOUT"))
