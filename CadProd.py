@@ -17,11 +17,11 @@ class Ui_cadProd(object):
     def cadastra(self):
         data = sqlite3.connect("inventory.db")
         cur = data.cursor()
-        nome = str(self.nome.text().upper()).upper()
-        categoria = str(self.categoria.text()).upper()
+        nome = self.nome.text()
+        categoria = self.categoria.text()
         valor = self.valor.text()
         custo = self.custo.text()
-        fabricante = str(self.fornecedor.text()).upper()
+        fabricante = self.fornecedor.text()
 
         if nome and categoria and valor and fabricante and custo:
             val = float(valor)

@@ -23,7 +23,7 @@ class Ui_verificaEst(object):
         cur.execute(comando)
         query = cur.fetchall()
         tableIndex = 0
-        for row in query:
+        for row in  query:
             cur.execute("SELECT * FROM Produtos WHERE Cod = :codigo", {'codigo': row[0]})
             produto = cur.fetchone()
             self.tableWidget.setItem(tableIndex, 0, QtWidgets.QTableWidgetItem(str(row[0])))

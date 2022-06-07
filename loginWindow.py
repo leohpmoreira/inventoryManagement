@@ -253,6 +253,7 @@ class main_window(object):
                 self.ui = menuSecundario_window()
             self.ui.setupUi(self.window)
             self.window.show()
+
             # go to menu
 
     def hide_error(self):
