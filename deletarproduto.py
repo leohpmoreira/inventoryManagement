@@ -28,6 +28,7 @@ class Ui_deleta(object):
                 print("Codigo invalido")
         else:
             print("Codigo invalido")
+        cur.close()
         data.close()
         self.loadData()
 
@@ -52,7 +53,7 @@ class Ui_deleta(object):
             self.tableWidget.setItem(tableIndex, 3, QtWidgets.QTableWidgetItem(str(row[5])))
             self.tableWidget.setItem(tableIndex, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             self.tableWidget.setItem(tableIndex, 5, QtWidgets.QTableWidgetItem(row[3]))
-            tableIndex+= 1
+            tableIndex += 1
         data.close()
 
     def setupUi(self, Form):
@@ -80,18 +81,18 @@ class Ui_deleta(object):
         font.setWeight(75)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("QPushButton{    \n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 25px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QPushButton:hover{    \n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QPushButton:pressed{    \n"
-"    background-color: rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                      "    border: 3px solid rgb(245, 222, 179);\n"
+                                      "    border-radius: 25px;\n"
+                                      "    background-color:rgb(249, 234, 195);\n"
+                                      "    color: rgb(45, 45, 45);\n"
+                                      "}\n"
+                                      "QPushButton:hover{    \n"
+                                      "    border: 3px solid rgb(55, 55, 55);\n"
+                                      "}\n"
+                                      "QPushButton:pressed{    \n"
+                                      "    background-color: rgb(135, 206, 250);\n"
+                                      "    color: rgb(45, 45, 45);\n"
+                                      "}")
         self.pushButton.setObjectName("pushButton")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(100, 61, 641, 201))
@@ -100,12 +101,12 @@ class Ui_deleta(object):
         self.tableWidget.setFont(font)
         self.tableWidget.setAutoFillBackground(True)
         self.tableWidget.setStyleSheet("QTableWidget {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                       "    border: 3px solid rgb(245, 222, 179);\n"
+                                       "    border-radius: 10px;\n"
+                                       "    padding: 15px;\n"
+                                       "    background-color:rgb(249, 234, 195);\n"
+                                       "    color: rgb(45, 45, 45);\n"
+                                       "}")
         self.tableWidget.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setObjectName("tableWidget")
@@ -132,19 +133,19 @@ class Ui_deleta(object):
         font.setWeight(75)
         self.lineEdit.setFont(font)
         self.lineEdit.setStyleSheet("QLineEdit {\n"
-"    border: 3px solid rgb(245, 222, 179);\n"
-"    border-radius: 10px;\n"
-"    padding: 15px;\n"
-"    background-color:rgb(249, 234, 195);\n"
-"    color: rgb(45, 45, 45);\n"
-"}\n"
-"QLineEdit:hover {\n"
-"    border: 3px solid rgb(55, 55, 55);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"    border: 3px solid rgb(135, 206, 250);\n"
-"    color: rgb(45, 45, 45);\n"
-"}")
+                                    "    border: 3px solid rgb(245, 222, 179);\n"
+                                    "    border-radius: 10px;\n"
+                                    "    padding: 15px;\n"
+                                    "    background-color:rgb(249, 234, 195);\n"
+                                    "    color: rgb(45, 45, 45);\n"
+                                    "}\n"
+                                    "QLineEdit:hover {\n"
+                                    "    border: 3px solid rgb(55, 55, 55);\n"
+                                    "}\n"
+                                    "QLineEdit:focus {\n"
+                                    "    border: 3px solid rgb(135, 206, 250);\n"
+                                    "    color: rgb(45, 45, 45);\n"
+                                    "}")
         self.lineEdit.setText("")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
