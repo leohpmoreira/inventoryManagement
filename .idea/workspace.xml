@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf83954d-3ffb-4816-9cdd-87b6bc13ea61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inventoryManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inventoryManagement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROCURA.ui" beforeDir="false" afterPath="$PROJECT_DIR$/PROCURA.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CadProd.py" beforeDir="false" afterPath="$PROJECT_DIR$/CadProd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deletarproduto.py" beforeDir="false" afterPath="$PROJECT_DIR$/deletarproduto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory.db" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procura.py" beforeDir="false" afterPath="$PROJECT_DIR$/procura.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verificaEst.py" beforeDir="false" afterPath="$PROJECT_DIR$/verificaEst.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
       <workItem from="1654440642678" duration="11012000" />
       <workItem from="1654552952285" duration="3924000" />
       <workItem from="1654568222108" duration="3209000" />
-      <workItem from="1654602475670" duration="2085000" />
+      <workItem from="1654602475670" duration="5234000" />
     </task>
     <servers />
   </component>
@@ -120,20 +121,10 @@
           <line>36</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/verificaEst.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/loginWindow.py</url>
-          <line>229</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/inventoryManagement$Projeto.coverage" NAME="Projeto Coverage Results" MODIFIED="1654605147972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/inventoryManagement$Projeto.coverage" NAME="Projeto Coverage Results" MODIFIED="1654608946785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -209,7 +209,7 @@ class Ui_procura(object):
         con = sqlite3.connect("inventory.db")
         cur = con.cursor()
         cod = str(self.lineEdit.text())
-        name = str(self.lineEdit_2.text())
+        name = str(self.lineEdit_2.text()).upper()
         if cod:
             try:
                 cur.execute("SELECT * FROM Estoque WHERE Cod_prod = :cod", {'cod': cod})

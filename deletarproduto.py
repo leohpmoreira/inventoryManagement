@@ -28,6 +28,7 @@ class Ui_deleta(object):
                 print("Codigo invalido")
         else:
             print("Codigo invalido")
+        cur.close()
         data.close()
         self.loadData()
 
