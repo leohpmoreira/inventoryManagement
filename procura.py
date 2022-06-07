@@ -11,13 +11,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_procura(object):
+class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(661, 506)
+        Form.resize(973, 545)
         Form.setStyleSheet("color:rgb(249, 234, 195);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(70, 40, 501, 51))
+        self.label.setGeometry(QtCore.QRect(100, 40, 701, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(26)
@@ -28,7 +28,7 @@ class Ui_procura(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(70, 130, 211, 51))
+        self.lineEdit.setGeometry(QtCore.QRect(100, 130, 211, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -53,7 +53,7 @@ class Ui_procura(object):
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(360, 130, 211, 51))
+        self.lineEdit_2.setGeometry(QtCore.QRect(390, 130, 211, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -78,7 +78,7 @@ class Ui_procura(object):
         self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(290, 130, 61, 51))
+        self.label_2.setGeometry(QtCore.QRect(320, 130, 61, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(12)
@@ -87,6 +87,55 @@ class Ui_procura(object):
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
+        self.tableWidget = QtWidgets.QTableWidget(Form)
+        self.tableWidget.setGeometry(QtCore.QRect(100, 200, 700, 300))
+        self.tableWidget.setMinimumSize(QtCore.QSize(700, 0))
+        self.tableWidget.setMaximumSize(QtCore.QSize(700, 300))
+        self.tableWidget.setStyleSheet("QTableWidget {\n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 10px;\n"
+"    padding: 15px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(7)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(6, item)
+        self.Remove = QtWidgets.QPushButton(Form)
+        self.Remove.setGeometry(QtCore.QRect(640, 130, 151, 51))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setBold(True)
+        font.setWeight(75)
+        self.Remove.setFont(font)
+        self.Remove.setStyleSheet("QPushButton{    \n"
+"    border: 3px solid rgb(245, 222, 179);\n"
+"    border-radius: 25px;\n"
+"    background-color:rgb(249, 234, 195);\n"
+"    color: rgb(45, 45, 45);\n"
+"}\n"
+"QPushButton:hover{    \n"
+"    border: 3px solid rgb(55, 55, 55);\n"
+"}\n"
+"QPushButton:pressed{    \n"
+"    background-color: rgb(135, 206, 250);\n"
+"    color: rgb(45, 45, 45);\n"
+"}")
+        self.Remove.setObjectName("Remove")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -98,3 +147,18 @@ class Ui_procura(object):
         self.lineEdit.setPlaceholderText(_translate("Form", "CÓDIGO DO PRODUTO"))
         self.lineEdit_2.setPlaceholderText(_translate("Form", "NOME DO PRODUTO"))
         self.label_2.setText(_translate("Form", "OU"))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "Cod. Mov"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "Produto"))
+        item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "Cod. Prod"))
+        item = self.tableWidget.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "Quantidade"))
+        item = self.tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "Tipo"))
+        item = self.tableWidget.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "Data"))
+        item = self.tableWidget.horizontalHeaderItem(6)
+        item.setText(_translate("Form", "Fornecedor"))
+        self.Remove.setText(_translate("Form", "PROCURAR"))
